@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Recipe.DataAccess.Concrete.LiteDb
 {
-    public class LDContactDal : LDBaseRepository<Article>
+    public class LDContactDal : LDBaseRepository<Contact>
     {
 
         string repoName;

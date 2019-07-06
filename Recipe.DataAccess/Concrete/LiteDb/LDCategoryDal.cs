@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Recipe.DataAccess.Concrete.LiteDb
 {
-    public class LDCategoryDal : LDBaseRepository<Article>
+    public class LDCategoryDal : LDBaseRepository<Category>
     {
 
         string repoName;

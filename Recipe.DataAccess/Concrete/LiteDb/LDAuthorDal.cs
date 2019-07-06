@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Recipe.DataAccess.Concrete.LiteDb
 {
-    public class LDAuthorDal : LDBaseRepository<Article>
+    public class LDAuthorDal : LDBaseRepository<Author>
     {
 
         string repoName;

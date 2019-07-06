@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Recipe.DataAccess.Concrete.LiteDb
 {
-    public class LDCommentDal : LDBaseRepository<Article>
+    public class LDCommentDal : LDBaseRepository<Comment>
     {
 
         string repoName;
