@@ -9,3 +9,10 @@ D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Debug\netcoreapp2.0\Recipe.Mv
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Debug\netcoreapp2.0\Recipe.MvcWebUI.AssemblyInfo.cs
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Debug\netcoreapp2.0\Recipe.MvcWebUI.dll
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Debug\netcoreapp2.0\Recipe.MvcWebUI.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.Business.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.DataAccess.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.Entities.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.Business.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.Entities.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.DataAccess.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Debug\netcoreapp2.0\Recipe.MvcWebUI.csproj.CopyComplete

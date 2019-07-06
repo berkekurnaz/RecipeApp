@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\LiteDb\" />
+    <ProjectReference Include="..\Recipe.DataAccess\Recipe.DataAccess.csproj" />
+    <ProjectReference Include="..\Recipe.Entities\Recipe.Entities.csproj" />
   </ItemGroup>
 
 </Project>
