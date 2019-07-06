@@ -1,0 +1,11 @@
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.MvcWebUI.deps.json
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.MvcWebUI.runtimeconfig.json
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.MvcWebUI.runtimeconfig.dev.json
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.MvcWebUI.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.MvcWebUI.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Debug\netcoreapp2.0\Recipe.MvcWebUI.csprojAssemblyReference.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Debug\netcoreapp2.0\Recipe.MvcWebUI.csproj.CoreCompileInputs.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Debug\netcoreapp2.0\Recipe.MvcWebUI.AssemblyInfoInputs.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Debug\netcoreapp2.0\Recipe.MvcWebUI.AssemblyInfo.cs
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Debug\netcoreapp2.0\Recipe.MvcWebUI.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Debug\netcoreapp2.0\Recipe.MvcWebUI.pdb

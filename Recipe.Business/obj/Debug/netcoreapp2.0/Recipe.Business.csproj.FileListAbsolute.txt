@@ -1,0 +1,9 @@
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\bin\Debug\netcoreapp2.0\Recipe.Business.deps.json
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\bin\Debug\netcoreapp2.0\Recipe.Business.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\bin\Debug\netcoreapp2.0\Recipe.Business.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\obj\Debug\netcoreapp2.0\Recipe.Business.csprojAssemblyReference.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\obj\Debug\netcoreapp2.0\Recipe.Business.csproj.CoreCompileInputs.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\obj\Debug\netcoreapp2.0\Recipe.Business.AssemblyInfoInputs.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\obj\Debug\netcoreapp2.0\Recipe.Business.AssemblyInfo.cs
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\obj\Debug\netcoreapp2.0\Recipe.Business.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\obj\Debug\netcoreapp2.0\Recipe.Business.pdb

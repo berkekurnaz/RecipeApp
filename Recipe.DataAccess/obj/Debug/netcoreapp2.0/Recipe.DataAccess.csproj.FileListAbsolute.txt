@@ -1,0 +1,9 @@
+D:\YazilimProjeleri2019\Recipe\Recipe.DataAccess\bin\Debug\netcoreapp2.0\Recipe.DataAccess.deps.json
+D:\YazilimProjeleri2019\Recipe\Recipe.DataAccess\bin\Debug\netcoreapp2.0\Recipe.DataAccess.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.DataAccess\bin\Debug\netcoreapp2.0\Recipe.DataAccess.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.DataAccess\obj\Debug\netcoreapp2.0\Recipe.DataAccess.csprojAssemblyReference.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.DataAccess\obj\Debug\netcoreapp2.0\Recipe.DataAccess.csproj.CoreCompileInputs.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.DataAccess\obj\Debug\netcoreapp2.0\Recipe.DataAccess.AssemblyInfoInputs.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.DataAccess\obj\Debug\netcoreapp2.0\Recipe.DataAccess.AssemblyInfo.cs
+D:\YazilimProjeleri2019\Recipe\Recipe.DataAccess\obj\Debug\netcoreapp2.0\Recipe.DataAccess.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.DataAccess\obj\Debug\netcoreapp2.0\Recipe.DataAccess.pdb
