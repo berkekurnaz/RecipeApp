@@ -5,10 +5,9 @@ using System.Text;
 
 namespace Recipe.Entities.Concrete
 {
-    public class Category : IEntity
+    public class Category : BaseEntity
     {
 
-        public int Id { get; set; }
         public string CategoryName { get; set; }
 
         public Category()

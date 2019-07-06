@@ -5,10 +5,9 @@ using System.Text;
 
 namespace Recipe.Entities.Concrete
 {
-    public class Article : IEntity
+    public class Article : BaseEntity
     {
 
-        public int Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public string Photo { get; set; }

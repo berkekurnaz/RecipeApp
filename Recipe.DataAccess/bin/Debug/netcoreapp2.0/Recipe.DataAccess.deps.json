@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v2.0": {
       "Recipe.DataAccess/1.0.0": {
+        "dependencies": {
+          "Recipe.Entities": "1.0.0"
+        },
         "runtime": {
           "Recipe.DataAccess.dll": {}
+        }
+      },
+      "Recipe.Entities/1.0.0": {
+        "runtime": {
+          "Recipe.Entities.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Recipe.DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Recipe.Entities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
