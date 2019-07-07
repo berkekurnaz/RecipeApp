@@ -10,7 +10,15 @@ namespace Recipe.Business.Concrete.LiteDb
     public class LDCategoryManager : ICategoryService
     {
 
-        private LDCategoryDal _categoryDal = new LDCategoryDal("Categories");
+        string repoName;
+        private LDCategoryDal _categoryDal;
+
+        public LDCategoryManager(string repoName)
+        {
+            this.repoName = repoName;
+            _categoryDal = new LDCategoryDal(repoName);
+        }
+
 
         public void Add(Category category)
         {
