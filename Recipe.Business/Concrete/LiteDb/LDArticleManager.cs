@@ -10,7 +10,14 @@ namespace Recipe.Business.Concrete.LiteDb
     public class LDArticleManager : IArticleService
     {
 
-        private LDArticleDal _articleDal = new LDArticleDal("Articles");
+        string repoName;
+        private LDArticleDal _articleDal;
+
+        public LDArticleManager(string repoName)
+        {
+            this.repoName = repoName;
+            _articleDal = new LDArticleDal(repoName);
+        }
 
         public void Add(Article article)
         {

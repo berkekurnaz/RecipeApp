@@ -10,7 +10,14 @@ namespace Recipe.Business.Concrete.LiteDb
     public class LDCommentManager : ICommentService
     {
 
-        private LDCommentDal _commentDal = new LDCommentDal("Comments");
+        string repoName;
+        private LDCommentDal _commentDal;
+
+        public LDCommentManager(string repoName)
+        {
+            this.repoName = repoName;
+            _commentDal = new LDCommentDal(repoName);
+        }
 
         public void Add(Comment comment)
         {

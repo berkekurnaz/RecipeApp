@@ -10,7 +10,14 @@ namespace Recipe.Business.Concrete.LiteDb
     public class LDContactManager : IContactService
     {
 
-        private LDContactDal _contactDal = new LDContactDal("Contacts");
+        string repoName;
+        private LDContactDal _contactDal;
+
+        public LDContactManager(string repoName)
+        {
+            this.repoName = repoName;
+            _contactDal = new LDContactDal(repoName);
+        }
 
         public void Add(Contact contact)
         {

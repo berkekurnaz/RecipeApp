@@ -10,7 +10,14 @@ namespace Recipe.Business.Concrete.LiteDb
     public class LDUserManager : IUserService
     {
 
-        private LDUserDal _userDal = new LDUserDal("Users");
+        string repoName;
+        private LDUserDal _userDal;
+
+        public LDUserManager(string repoName)
+        {
+            this.repoName = repoName;
+            _userDal = new LDUserDal(repoName);
+        }
 
         public void Add(User user)
         {

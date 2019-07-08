@@ -10,7 +10,14 @@ namespace Recipe.Business.Concrete.LiteDb
     public class LDAuthorManager : IAuthorService
     {
 
-        private LDAuthorDal _authorDal = new LDAuthorDal("Authors");
+        string repoName;
+        private LDAuthorDal _authorDal;
+
+        public LDAuthorManager(string repoName)
+        {
+            this.repoName = repoName;
+            _authorDal = new LDAuthorDal(repoName);
+        }
 
         public void Add(Author author)
         {
