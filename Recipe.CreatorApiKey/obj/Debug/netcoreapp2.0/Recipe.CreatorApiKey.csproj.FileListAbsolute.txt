@@ -1,0 +1,9 @@
+D:\YazilimProjeleri2019\Recipe\Recipe.CreatorApiKey\bin\Debug\netcoreapp2.0\Recipe.CreatorApiKey.deps.json
+D:\YazilimProjeleri2019\Recipe\Recipe.CreatorApiKey\bin\Debug\netcoreapp2.0\Recipe.CreatorApiKey.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.CreatorApiKey\bin\Debug\netcoreapp2.0\Recipe.CreatorApiKey.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.CreatorApiKey\obj\Debug\netcoreapp2.0\Recipe.CreatorApiKey.csprojAssemblyReference.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.CreatorApiKey\obj\Debug\netcoreapp2.0\Recipe.CreatorApiKey.csproj.CoreCompileInputs.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.CreatorApiKey\obj\Debug\netcoreapp2.0\Recipe.CreatorApiKey.AssemblyInfoInputs.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.CreatorApiKey\obj\Debug\netcoreapp2.0\Recipe.CreatorApiKey.AssemblyInfo.cs
+D:\YazilimProjeleri2019\Recipe\Recipe.CreatorApiKey\obj\Debug\netcoreapp2.0\Recipe.CreatorApiKey.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.CreatorApiKey\obj\Debug\netcoreapp2.0\Recipe.CreatorApiKey.pdb

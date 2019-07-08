@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Recipe.Business.Concrete.LiteDb;
+using Recipe.CreatorApiKey.Concrete;
 using Recipe.Entities.Concrete;
 
 namespace Recipe.MvcWebUI.Controllers
@@ -43,7 +44,7 @@ namespace Recipe.MvcWebUI.Controllers
         {
             author.CreatedDate = DateTime.Now.ToShortDateString();
             author.Photo = "defaultauthor.png";
-            author.ApiKey = "12345ApiKey";
+            author.ApiKey = ApiKeyCreator.GetApiKey();
             authorManager.Add(author);
             TempData["YazarEklemeBasariMesaj"] = "Yeni Yazar Başarıyla Oluşturuldu...";
             return RedirectToAction("Index");

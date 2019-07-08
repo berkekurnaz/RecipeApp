@@ -27,6 +27,7 @@
           "Microsoft.NETCore.App": "2.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.3",
           "Recipe.Business": "1.0.0",
+          "Recipe.CreatorApiKey": "1.0.0",
           "Recipe.Entities": "1.0.0"
         },
         "runtime": {
@@ -4079,6 +4080,14 @@
           "Recipe.Business.dll": {}
         }
       },
+      "Recipe.CreatorApiKey/1.0.0": {
+        "runtime": {
+          "Recipe.CreatorApiKey.dll": {}
+        },
+        "compile": {
+          "Recipe.CreatorApiKey.dll": {}
+        }
+      },
       "Recipe.DataAccess/1.0.0": {
         "dependencies": {
           "LiteDB": "4.1.4",
@@ -6419,6 +6428,11 @@
       "hashPath": "windowsazure.storage.8.1.4.nupkg.sha512"
     },
     "Recipe.Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Recipe.CreatorApiKey/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

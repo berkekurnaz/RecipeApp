@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Recipe.Business\Recipe.Business.csproj" />
+    <ProjectReference Include="..\Recipe.CreatorApiKey\Recipe.CreatorApiKey.csproj" />
     <ProjectReference Include="..\Recipe.Entities\Recipe.Entities.csproj" />
   </ItemGroup>
 

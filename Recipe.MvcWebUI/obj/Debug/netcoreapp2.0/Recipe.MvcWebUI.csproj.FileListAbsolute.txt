@@ -16,3 +16,5 @@ D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.Bu
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.Entities.pdb
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.DataAccess.pdb
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Debug\netcoreapp2.0\Recipe.MvcWebUI.csproj.CopyComplete
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.CreatorApiKey.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Debug\netcoreapp2.0\Recipe.CreatorApiKey.pdb

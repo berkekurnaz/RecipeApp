@@ -5056,6 +5056,16 @@
           "bin/placeholder/Recipe.Business.dll": {}
         }
       },
+      "Recipe.CreatorApiKey/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Recipe.CreatorApiKey.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Recipe.CreatorApiKey.dll": {}
+        }
+      },
       "Recipe.DataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
@@ -13327,6 +13337,11 @@
       "path": "../Recipe.Business/Recipe.Business.csproj",
       "msbuildProject": "../Recipe.Business/Recipe.Business.csproj"
     },
+    "Recipe.CreatorApiKey/1.0.0": {
+      "type": "project",
+      "path": "../Recipe.CreatorApiKey/Recipe.CreatorApiKey.csproj",
+      "msbuildProject": "../Recipe.CreatorApiKey/Recipe.CreatorApiKey.csproj"
+    },
     "Recipe.DataAccess/1.0.0": {
       "type": "project",
       "path": "../Recipe.DataAccess/Recipe.DataAccess.csproj",
@@ -13344,6 +13359,7 @@
       "Microsoft.NETCore.App >= 2.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.3",
       "Recipe.Business >= 1.0.0",
+      "Recipe.CreatorApiKey >= 1.0.0",
       "Recipe.Entities >= 1.0.0"
     ]
   },
@@ -13379,6 +13395,9 @@
           "projectReferences": {
             "D:\\YazilimProjeleri2019\\Recipe\\Recipe.Business\\Recipe.Business.csproj": {
               "projectPath": "D:\\YazilimProjeleri2019\\Recipe\\Recipe.Business\\Recipe.Business.csproj"
+            },
+            "D:\\YazilimProjeleri2019\\Recipe\\Recipe.CreatorApiKey\\Recipe.CreatorApiKey.csproj": {
+              "projectPath": "D:\\YazilimProjeleri2019\\Recipe\\Recipe.CreatorApiKey\\Recipe.CreatorApiKey.csproj"
             },
             "D:\\YazilimProjeleri2019\\Recipe\\Recipe.Entities\\Recipe.Entities.csproj": {
               "projectPath": "D:\\YazilimProjeleri2019\\Recipe\\Recipe.Entities\\Recipe.Entities.csproj"
