@@ -1,0 +1,40 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Incele";
+    Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
+}
+
+<div class="card">
+    <div class="card-heading border bottom">
+        <br />
+        <h4 class="card-title text-center">Mesaj İncele</h4>
+    </div>
+    <div class="card-block">
+        <div class="row">
+            <div class="col-md-9 ml-auto mr-auto">
+                <div class="form-group">
+                    <br />
+                    <label>Ad Soyad</label>
+                    <input type="text" class="form-control kontrol" value="@Model.NameSurname" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Mail Adresi</label>
+                    <input type="text" class="form-control kontrol" value="@Model.Mail" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Gönderim Tarihi</label>
+                    <input type="text" class="form-control kontrol" value="@Model.CreatedDate" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Başlık</label>
+                    <input type="text" class="form-control kontrol" value="@Model.Title" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Mesaj</label>
+                    <textarea class="form-control" rows="5" readonly>@Model.Content</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
