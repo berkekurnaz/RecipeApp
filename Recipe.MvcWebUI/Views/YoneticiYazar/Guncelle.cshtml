@@ -1,0 +1,43 @@
+﻿@model Author
+@{
+    ViewData["Title"] = "Guncelle";
+    Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
+}
+
+<div class="card">
+    <div class="card-heading border bottom">
+        <br />
+        <h4 class="card-title text-center">Yazar Güncelle</h4>
+    </div>
+    <div class="card-block">
+        <div class="row">
+            <div class="col-md-9 ml-auto mr-auto">
+                <form asp-controller="YoneticiYazar" asp-action="Guncelle" method="post" enctype="multipart/form-data" class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
+                    <div class="form-group">
+                        <br />
+                        <label>Yazar Ad Soyad</label>
+                        <input type="text" class="form-control kontrol" asp-for="NameSurname" value="@Model.NameSurname" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Yazar Açıklama</label>
+                        <textarea class="form-control" asp-for="Description" placeholder="Yazar Açıklamasını Giriniz..." rows="5" required>@Model.Description</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Kullanıcı Adı</label>
+                        <input type="text" class="form-control kontrol" asp-for="Username" value="@Model.Username" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        <input type="text" class="form-control kontrol" asp-for="Password" value="@Model.Password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Api Key</label>
+                        <input type="text" class="form-control kontrol" asp-for="ApiKey" value="@Model.ApiKey" required>
+                    </div>
+                    <center><button type="submit" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Yazar Güncelle</button></center><br />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
