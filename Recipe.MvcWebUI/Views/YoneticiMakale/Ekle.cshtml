@@ -29,6 +29,12 @@
                         <label>Makale Kategori</label>
                         @Html.DropDownList("KategoriId", null, htmlAttributes: new { @class = "form-control" })
                     </div>
+
+                    <div class="form-group">
+                        <label class="control-label mb-1">Makale Fotoğrafı</label>
+                        <input class="form-control" type="file" name="Image" />
+                    </div>
+
                     <center><button type="submit" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Yeni Makale Ekle</button></center><br />
                 </form>
             </div>

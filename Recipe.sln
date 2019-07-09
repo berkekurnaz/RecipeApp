@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipe.Business", "Recipe.B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipe.MvcWebUI", "Recipe.MvcWebUI\Recipe.MvcWebUI.csproj", "{3C94D62A-E14B-4F8A-A929-4DF901E4E954}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipe.CreatorApiKey", "Recipe.CreatorApiKey\Recipe.CreatorApiKey.csproj", "{0C703A73-8728-4E6A-9A2C-F813F4447CB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipe.CreatorApiKey", "Recipe.CreatorApiKey\Recipe.CreatorApiKey.csproj", "{0C703A73-8728-4E6A-9A2C-F813F4447CB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipe.PhotoOperations", "Recipe.PhotoOperations\Recipe.PhotoOperations.csproj", "{A79A1FE7-9559-4357-A025-0B0EE892DF1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{0C703A73-8728-4E6A-9A2C-F813F4447CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C703A73-8728-4E6A-9A2C-F813F4447CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C703A73-8728-4E6A-9A2C-F813F4447CB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A79A1FE7-9559-4357-A025-0B0EE892DF1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A79A1FE7-9559-4357-A025-0B0EE892DF1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A79A1FE7-9559-4357-A025-0B0EE892DF1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A79A1FE7-9559-4357-A025-0B0EE892DF1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

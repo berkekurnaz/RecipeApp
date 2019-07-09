@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Recipe.Business.Concrete.LiteDb;
@@ -40,12 +41,29 @@ namespace Recipe.MvcWebUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Ekle(Article article, int KategoriId)
+        public async Task<IActionResult> Ekle(Article article, int KategoriId, IFormFile Image)
         {
             var author = authorManager.GetById(1);
             var category = categoryManager.GetById(KategoriId);
 
-            article.Photo = "defaultarticle.png";
+            if (Image == null || Image.Length == 0)
+            {
+                article.Photo = "defaultarticle.png";
+            }
+            else
+            {
+                string newImage = Guid.NewGuid().ToString() + Image.FileName;
+
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Makale", newImage);
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await Image.CopyToAsync(stream);
+                }
+
+                article.Photo = newImage;
+            }
+            
             article.CreatedDate = DateTime.Now.ToShortDateString();
             article.Author = author;
             article.Category = category;
@@ -83,6 +101,7 @@ namespace Recipe.MvcWebUI.Controllers
         public IActionResult Sil(int Id)
         {
             var article = articleManager.GetById(Id);
+            // Makaleye Ait Bütün Yorumlar Silinecek.
             if (article.Photo != "defaultarticle.png")
             {
                 if (System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\wwwroot\\Makale\\" + article.Photo))
@@ -92,6 +111,42 @@ namespace Recipe.MvcWebUI.Controllers
             }
             articleManager.Delete(Id);
             TempData["MakaleSilmeBasariMesaj"] = "Makale Başarıyla Silindi...";
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Fotograf(int Id)
+        {
+            var item = articleManager.GetById(Id);
+            if (item == null)
+            {
+                return RedirectToAction("Hata", "Yonetici");
+            }
+            return View(item);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Fotograf(int Id, Article newArticle, IFormFile Image)
+        {
+            Article article = articleManager.GetById(Id);
+            if (Image != null)
+            {
+                if (article.Photo != "defaultarticle.png")
+                {
+                    if (System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\wwwroot\\Makale\\" + article.Photo))
+                    {
+                        System.IO.File.Delete(Directory.GetCurrentDirectory() + "\\wwwroot\\Makale\\" + article.Photo);
+                    }
+                }
+                string newImage = Guid.NewGuid().ToString() + Image.FileName;
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Makale", newImage);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await Image.CopyToAsync(stream);
+                }
+                article.Photo = newImage;
+            }
+            articleManager.Update(article);
+            TempData["MakaleFotografBasariMesaj"] = "Makale Fotoğrafı Başarıyla Güncellendi...";
             return RedirectToAction("Index");
         }
 
