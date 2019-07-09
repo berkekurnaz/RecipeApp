@@ -87,6 +87,14 @@ namespace Recipe.MvcWebUI.Controllers
         [HttpPost] 
         public IActionResult Sil(int Id, IFormCollection collection)
         {
+            var author = authorManager.GetById(Id);
+            if (author.Photo != "defaultauthor.png")
+            {
+                if (System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\wwwroot\\Yazar\\" + author.Photo))
+                {
+                    System.IO.File.Delete(Directory.GetCurrentDirectory() + "\\wwwroot\\Yazar\\" + author.Photo);
+                }
+            }
             // Yazara Ait Yazıları Sil.
             authorManager.Delete(Id);
             TempData["YazarSilmeBasariMesaj"] = "Yazar Başarıyla Silindi...";
