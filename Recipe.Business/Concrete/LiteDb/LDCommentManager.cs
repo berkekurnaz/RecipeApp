@@ -29,6 +29,42 @@ namespace Recipe.Business.Concrete.LiteDb
             _commentDal.Delete(Id);
         }
 
+        public void DeleteByArticleId(int articleId)
+        {
+            List<Comment> comments = _commentDal.GetAll().FindAll(x => x.Article.Id == articleId);
+            for (int i = 0; i < comments.Count; i++)
+            {
+                _commentDal.Delete(comments[i].Id);
+            }
+        }
+
+        public void DeleteByCategoryId(int categoryId)
+        {
+            List<Comment> comments = _commentDal.GetAll().FindAll(x => x.Article.Category.Id == categoryId);
+            for (int i = 0; i < comments.Count; i++)
+            {
+                _commentDal.Delete(comments[i].Id);
+            }
+        }
+
+        public void DeleteByAuthorId(int authorId)
+        {
+            List<Comment> comments = _commentDal.GetAll().FindAll(x => x.Article.Author.Id == authorId);
+            for (int i = 0; i < comments.Count; i++)
+            {
+                _commentDal.Delete(comments[i].Id);
+            }
+        }
+
+        public void DeleteByUserId(int userId)
+        {
+            List<Comment> comments = _commentDal.GetAll().FindAll(x => x.User.Id == userId);
+            for (int i = 0; i < comments.Count; i++)
+            {
+                _commentDal.Delete(comments[i].Id);
+            }
+        }
+
         public List<Comment> GetAll()
         {
             return _commentDal.GetAll();

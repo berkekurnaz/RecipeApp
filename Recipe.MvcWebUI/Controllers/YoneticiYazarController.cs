@@ -15,6 +15,8 @@ namespace Recipe.MvcWebUI.Controllers
     {
 
         LDAuthorManager authorManager = new LDAuthorManager("Authors");
+        LDArticleManager articleManager = new LDArticleManager("Articles");
+        LDCommentManager commentManager = new LDCommentManager("Comments");
 
         /* Listeleme Sayfası */
         public IActionResult Index()
@@ -95,7 +97,8 @@ namespace Recipe.MvcWebUI.Controllers
                     System.IO.File.Delete(Directory.GetCurrentDirectory() + "\\wwwroot\\Yazar\\" + author.Photo);
                 }
             }
-            // Yazara Ait Yazıları Sil.
+            articleManager.DeleteByAuthorId(Id); // Yazara Ait Makaleleri Silme.
+            commentManager.DeleteByAuthorId(Id); // Yazara Ait Yorumları Silme.
             authorManager.Delete(Id);
             TempData["YazarSilmeBasariMesaj"] = "Yazar Başarıyla Silindi...";
             return RedirectToAction("Index");

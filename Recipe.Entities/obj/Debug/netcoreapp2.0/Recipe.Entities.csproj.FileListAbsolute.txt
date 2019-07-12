@@ -6,4 +6,3 @@ D:\YazilimProjeleri2019\Recipe\Recipe.Entities\obj\Debug\netcoreapp2.0\Recipe.En
 D:\YazilimProjeleri2019\Recipe\Recipe.Entities\obj\Debug\netcoreapp2.0\Recipe.Entities.AssemblyInfo.cs
 D:\YazilimProjeleri2019\Recipe\Recipe.Entities\obj\Debug\netcoreapp2.0\Recipe.Entities.dll
 D:\YazilimProjeleri2019\Recipe\Recipe.Entities\obj\Debug\netcoreapp2.0\Recipe.Entities.pdb
-D:\YazilimProjeleri2019\Recipe\Recipe.Entities\obj\Debug\netcoreapp2.0\Recipe.Entities.csprojAssemblyReference.cache

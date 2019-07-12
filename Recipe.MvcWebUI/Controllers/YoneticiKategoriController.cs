@@ -12,6 +12,8 @@ namespace Recipe.MvcWebUI.Controllers
     {
 
         LDCategoryManager categoryManager = new LDCategoryManager("Categories");
+        LDArticleManager articleManager = new LDArticleManager("Articles");
+        LDCommentManager commentManager = new LDCommentManager("Comments");
 
         public IActionResult Index()
         {
@@ -41,7 +43,8 @@ namespace Recipe.MvcWebUI.Controllers
         [HttpPost]
         public IActionResult Sil(int Id)
         {
-            // Burada Kategoriye Ait Makalelerin Silme İşlemi Yapılacak...
+            articleManager.DeleteByCategoryId(Id); // Kategoriye Ait Makaleleri Silme.
+            commentManager.DeleteByCategoryId(Id); // Kategoriye Ait Yorumları Silme.
             categoryManager.Delete(Id);
             TempData["KategoriSilmeBasariMesaj"] = "Kategori Ve İlgili Makaleler Başarıyla Silindi...";
             return RedirectToAction("Index");

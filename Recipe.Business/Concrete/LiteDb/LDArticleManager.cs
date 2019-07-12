@@ -29,6 +29,24 @@ namespace Recipe.Business.Concrete.LiteDb
             _articleDal.Delete(Id);
         }
 
+        public void DeleteByCategoryId(int categoryId)
+        {
+            List<Article> articles = _articleDal.GetAll().FindAll(x => x.Category.Id == categoryId);
+            for (int i = 0; i < articles.Count; i++)
+            {
+                _articleDal.Delete(articles[i].Id);
+            }
+        }
+
+        public void DeleteByAuthorId(int authorId)
+        {
+            List<Article> articles = _articleDal.GetAll().FindAll(x => x.Author.Id == authorId);
+            for (int i = 0; i < articles.Count; i++)
+            {
+                _articleDal.Delete(articles[i].Id);
+            }
+        }
+
         public List<Article> GetAll()
         {
             return _articleDal.GetAll();
@@ -43,5 +61,6 @@ namespace Recipe.Business.Concrete.LiteDb
         {
             _articleDal.Update(article);
         }
+
     }
 }

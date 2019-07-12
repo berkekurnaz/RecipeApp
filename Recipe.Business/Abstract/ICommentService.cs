@@ -12,5 +12,9 @@ namespace Recipe.Business.Abstract
         void Add(Comment comment);
         void Update(Comment comment);
         void Delete(int Id);
+        void DeleteByArticleId(int articleId);
+        void DeleteByCategoryId(int categoryId);
+        void DeleteByAuthorId(int authorId);
+        void DeleteByUserId(int userId);
     }
 }

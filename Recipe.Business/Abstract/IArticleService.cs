@@ -12,5 +12,7 @@ namespace Recipe.Business.Abstract
         void Add(Article article);
         void Update(Article article);
         void Delete(int Id);
+        void DeleteByCategoryId(int CategoryId);
+        void DeleteByAuthorId(int authorId);
     }
 }

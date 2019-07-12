@@ -44,5 +44,6 @@ namespace Recipe.Business.Concrete.LiteDb
         {
             _categoryDal.Update(category);
         }
+
     }
 }

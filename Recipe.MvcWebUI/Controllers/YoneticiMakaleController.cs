@@ -17,6 +17,7 @@ namespace Recipe.MvcWebUI.Controllers
         LDArticleManager articleManager = new LDArticleManager("Articles");
         LDCategoryManager categoryManager = new LDCategoryManager("Categories");
         LDAuthorManager authorManager = new LDAuthorManager("Authors");
+        LDCommentManager commentManager = new LDCommentManager("Comments");
 
         public IActionResult Index()
         {
@@ -101,7 +102,7 @@ namespace Recipe.MvcWebUI.Controllers
         public IActionResult Sil(int Id)
         {
             var article = articleManager.GetById(Id);
-            // Makaleye Ait Bütün Yorumlar Silinecek.
+            commentManager.DeleteByArticleId(Id);
             if (article.Photo != "defaultarticle.png")
             {
                 if (System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\wwwroot\\Makale\\" + article.Photo))

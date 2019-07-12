@@ -1,0 +1,9 @@
+D:\YazilimProjeleri2019\Recipe\Recipe.PhotoOperations\bin\Debug\netcoreapp2.0\Recipe.PhotoOperations.deps.json
+D:\YazilimProjeleri2019\Recipe\Recipe.PhotoOperations\bin\Debug\netcoreapp2.0\Recipe.PhotoOperations.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.PhotoOperations\bin\Debug\netcoreapp2.0\Recipe.PhotoOperations.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.PhotoOperations\obj\Debug\netcoreapp2.0\Recipe.PhotoOperations.csprojAssemblyReference.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.PhotoOperations\obj\Debug\netcoreapp2.0\Recipe.PhotoOperations.csproj.CoreCompileInputs.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.PhotoOperations\obj\Debug\netcoreapp2.0\Recipe.PhotoOperations.AssemblyInfoInputs.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.PhotoOperations\obj\Debug\netcoreapp2.0\Recipe.PhotoOperations.AssemblyInfo.cs
+D:\YazilimProjeleri2019\Recipe\Recipe.PhotoOperations\obj\Debug\netcoreapp2.0\Recipe.PhotoOperations.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.PhotoOperations\obj\Debug\netcoreapp2.0\Recipe.PhotoOperations.pdb

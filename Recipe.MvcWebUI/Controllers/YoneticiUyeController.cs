@@ -13,6 +13,7 @@ namespace Recipe.MvcWebUI.Controllers
     {
 
         LDUserManager userManager = new LDUserManager("Users");
+        LDCommentManager commentManager = new LDCommentManager("Comments");
 
         public IActionResult Index()
         {
@@ -34,7 +35,7 @@ namespace Recipe.MvcWebUI.Controllers
         public IActionResult Sil(int Id)
         {
             var user = userManager.GetById(Id);
-            // Uyeye Ait Yorumlar Silinecek.
+            commentManager.DeleteByUserId(Id); // Uyeye Ait Yorumları Silme.
             if (user.Photo != "defaultuser.png")
             {
                 if (System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\wwwroot\\Uye\\" + user.Photo))
