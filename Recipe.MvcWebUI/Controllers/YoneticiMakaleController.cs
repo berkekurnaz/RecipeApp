@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Recipe.Business.Concrete.LiteDb;
 using Recipe.Entities.Concrete;
+using Recipe.MvcWebUI.AuthFilter;
 
 namespace Recipe.MvcWebUI.Controllers
 {
+    [AdminAuthFilter]
     public class YoneticiMakaleController : Controller
     {
 
@@ -44,7 +46,8 @@ namespace Recipe.MvcWebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Ekle(Article article, int KategoriId, IFormFile Image)
         {
-            var author = authorManager.GetById(1);
+            int sessionAuthorId = Convert.ToInt32(HttpContext.Session.GetInt32("SessionAuthorId"));
+            var author = authorManager.GetById(sessionAuthorId);
             var category = categoryManager.GetById(KategoriId);
 
             if (Image == null || Image.Length == 0)

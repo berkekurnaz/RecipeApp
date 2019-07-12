@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Recipe.Business.Concrete.LiteDb;
 using Recipe.Entities.Concrete;
+using Recipe.MvcWebUI.AuthFilter;
 
 namespace Recipe.MvcWebUI.Controllers
 {
@@ -18,6 +19,7 @@ namespace Recipe.MvcWebUI.Controllers
         LDContactManager contactManager = new LDContactManager("Contacts");
         LDAuthorManager authorManager = new LDAuthorManager("Authors");
 
+        [AdminAuthFilter]
         public IActionResult Index()
         {
             ViewBag.CountArticle = articleManager.GetAll().Count;

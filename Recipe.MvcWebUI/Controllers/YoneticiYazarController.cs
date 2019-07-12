@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 using Recipe.Business.Concrete.LiteDb;
 using Recipe.CreatorApiKey.Concrete;
 using Recipe.Entities.Concrete;
+using Recipe.MvcWebUI.AuthFilter;
 
 namespace Recipe.MvcWebUI.Controllers
 {
+    [AdminAuthFilter]
     public class YoneticiYazarController : Controller
     {
 

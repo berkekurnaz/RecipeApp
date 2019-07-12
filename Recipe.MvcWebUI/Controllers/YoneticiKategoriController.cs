@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Recipe.Business.Concrete.LiteDb;
 using Recipe.Entities.Concrete;
+using Recipe.MvcWebUI.AuthFilter;
 
 namespace Recipe.MvcWebUI.Controllers
 {
+    [AdminAuthFilter]
     public class YoneticiKategoriController : Controller
     {
 
