@@ -12,5 +12,6 @@ namespace Recipe.Business.Abstract
         void Add(User user);
         void Update(User user);
         void Delete(int Id);
+        User Login(User user);
     }
 }

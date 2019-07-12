@@ -43,5 +43,13 @@ namespace Recipe.Business.Concrete.LiteDb
         {
             _userDal.Update(user);
         }
+
+        public User Login(User user)
+        {
+            var result = new User();
+            result = _userDal.GetAll().Find(x => x.Username == user.Username && x.Password == user.Password);
+            return result;
+        }
+
     }
 }
