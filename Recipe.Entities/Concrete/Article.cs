@@ -12,6 +12,7 @@ namespace Recipe.Entities.Concrete
         public string Content { get; set; }
         public string Photo { get; set; }
         public string CreatedDate { get; set; }
+        public int ReadCount { get; set; }
         public Author Author { get; set; }
         public Category Category { get; set; }
 

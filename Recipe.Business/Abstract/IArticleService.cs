@@ -8,6 +8,8 @@ namespace Recipe.Business.Abstract
     public interface IArticleService
     {
         List<Article> GetAll();
+        List<Article> GetRecentlyArticles(int count);
+        List<Article> GetMostPopularArticles();
         Article GetById(int Id);
         void Add(Article article);
         void Update(Article article);

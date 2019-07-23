@@ -3,6 +3,7 @@ using Recipe.DataAccess.Concrete.LiteDb;
 using Recipe.Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Recipe.Business.Concrete.LiteDb
@@ -50,6 +51,16 @@ namespace Recipe.Business.Concrete.LiteDb
         public List<Article> GetAll()
         {
             return _articleDal.GetAll();
+        }
+
+        public List<Article> GetRecentlyArticles(int count)
+        {
+            return _articleDal.GetAll().OrderByDescending(x => x.Id).Take(count).ToList();
+        }
+
+        public List<Article> GetMostPopularArticles()
+        {
+            return _articleDal.GetAll().OrderByDescending(x => x.ReadCount).Take(5).ToList();
         }
 
         public Article GetById(int Id)

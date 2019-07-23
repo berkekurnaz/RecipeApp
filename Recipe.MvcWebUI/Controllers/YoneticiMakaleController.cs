@@ -69,6 +69,7 @@ namespace Recipe.MvcWebUI.Controllers
             }
             
             article.CreatedDate = DateTime.Now.ToShortDateString();
+            article.ReadCount = 0;
             article.Author = author;
             article.Category = category;
             articleManager.Add(article);

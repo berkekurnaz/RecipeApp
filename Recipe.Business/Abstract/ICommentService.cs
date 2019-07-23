@@ -8,6 +8,7 @@ namespace Recipe.Business.Abstract
     public interface ICommentService
     {
         List<Comment> GetAll();
+        List<Comment> GetAllByArticle(int articleId, int count);
         Comment GetById(int Id);
         void Add(Comment comment);
         void Update(Comment comment);

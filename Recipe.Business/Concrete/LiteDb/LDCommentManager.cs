@@ -3,6 +3,7 @@ using Recipe.DataAccess.Concrete.LiteDb;
 using Recipe.Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Recipe.Business.Concrete.LiteDb
@@ -68,6 +69,11 @@ namespace Recipe.Business.Concrete.LiteDb
         public List<Comment> GetAll()
         {
             return _commentDal.GetAll();
+        }
+
+        public List<Comment> GetAllByArticle(int articleId, int count)
+        {
+            return _commentDal.GetAll().FindAll(x => x.Article.Id == articleId).OrderByDescending(x => x.Id).Take(count).ToList();
         }
 
         public Comment GetById(int Id)
