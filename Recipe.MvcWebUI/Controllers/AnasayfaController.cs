@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Recipe.Business.Concrete.LiteDb;
 using Recipe.Entities.Concrete;
@@ -18,6 +19,7 @@ namespace Recipe.MvcWebUI.Controllers
         LDCommentManager commentManager = new LDCommentManager("Comments");
         LDSettingManager settingManager = new LDSettingManager("Settings");
         LDContactManager contactManager = new LDContactManager("Contacts");
+        LDUserManager userManager = new LDUserManager("Users");
 
         /* Anasayfa */
         public IActionResult Index()
@@ -43,6 +45,20 @@ namespace Recipe.MvcWebUI.Controllers
                 MostPopular = articleManager.GetMostPopularArticles()
             };
             return View(articleViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult YorumYap(int Id, Comment comment)
+        {
+            var userId = Convert.ToInt32(HttpContext.Session.GetString("SessionUserId"));
+            var user = userManager.GetById(userId);
+            var article = articleManager.GetById(Id);
+            comment.Article = article;
+            comment.User = user;
+            comment.CreatedDate = DateTime.Now.ToShortDateString();
+            commentManager.Add(comment);
+            TempData["YorumBasariMesaj"] = "Başarıyla Yeni Bir Yorum Eklediniz.";
+            return RedirectToAction("Makale", new { Id = Id });
         }
 
         /* Kategoriye Ait Makale Listeleme Sayfası */

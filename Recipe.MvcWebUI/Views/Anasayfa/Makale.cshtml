@@ -1,4 +1,6 @@
 ﻿@model Recipe.MvcWebUI.Models.ArticleViewModel
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "Makale";
     Layout = "~/Views/Shared/_LayoutMain.cshtml";
@@ -26,6 +28,12 @@
         <div class="row">
             <!-- Post content -->
             <div class="col-md-8">
+                @if (TempData["YorumBasariMesaj"] != null)
+                {
+                    <div class="alert alert-success" role="alert">
+                        @TempData["YorumBasariMesaj"]
+                    </div>
+                }
                 <div class="section-row ">
                     <div class="main-post">
                         <h3>@Model.Article.Title</h3><br />
@@ -66,14 +74,14 @@
                                 <!-- comment -->
                                 <div class="media">
                                     <div class="media-left">
-                                        <img class="media-object" src="~/TemplateMain/img/avatar.png" alt="">
+                                        <img class="media-object" src="~/Uye/@item.User.Photo" alt="">
                                     </div>
                                     <div class="media-body">
                                         <div class="media-heading">
-                                            <h4>John Doe</h4>
-                                            <span class="time">March 27, 2018 at 8:00 am</span>
+                                            <h4>@item.User.NameSurname</h4>
+                                            <span class="time">@item.CreatedDate</span>
                                         </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <p>@item.Title</p>
                                     </div>
                                 </div>
                                 <!-- /comment -->
@@ -92,16 +100,27 @@
                     <div class="section-title">
                         <h2>Yorum Yap</h2>
                     </div>
-                    <form class="post-reply">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <textarea class="input" name="message" placeholder="Yorumunuz..."></textarea>
+                    @if (HttpContextAccessor.HttpContext.Session.GetString("SessionUserId") != null)
+                    {
+                        <form class="post-reply" asp-controller="Anasayfa" asp-action="YorumYap" asp-route-Id="@Model.Article.Id" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea class="input" asp-for="comment.Title" placeholder="Yorumunuz..."></textarea>
+                                    </div>
+                                    <button class="primary-button">Yorum Gönder</button>
                                 </div>
-                                <button class="primary-button">Yorum Gönder</button>
                             </div>
+                        </form>
+                    }
+                    else
+                    {
+                        <p class="text-center">Makalelere Yorum Yazabilmek İçin Giriş Yapmalısın.</p>
+                        <div class="text-center">
+                            <center><a href="/Uye/Giris/"> Hemen Giriş Yapmak İçin Tıkla</a></center>
                         </div>
-                    </form>
+                    }
+
                 </div>
                 <!-- /reply -->
             </div>

@@ -12,5 +12,6 @@ namespace Recipe.MvcWebUI.Models
         public List<Comment> Comments { get; set; }
         public List<Article> MostPopular { get; set; }
         public List<Category> Categories { get; set; }
+        public Comment comment { get; set; }
     }
 }
