@@ -1,0 +1,120 @@
+﻿@model Recipe.MvcWebUI.Models.UserViewModel
+@{
+    ViewData["Title"] = "UyeOl";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <ul class="page-header-breadcrumb">
+                    <li><a href="/Uye/UyeOl/">Anasayfa</a></li>
+                    <li>Üye Ol</li>
+                </ul>
+                <h1>Üye Ol</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="section-row text-center">
+                    <h3>Üye Ol</h3>
+                    <hr />
+                    @if (TempData["UyeOlmaHataMesaj"] != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @TempData["UyeOlmaHataMesaj"]
+                        </div>
+                    }
+                    <form asp-controller="Uye" asp-action="UyeOl" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-12" style="padding-left:20%;padding-right:20%;">
+                                <div class="form-group">
+                                    <span>Ad Soyad</span>
+                                    <input class="input" type="text" asp-for="User.NameSurname" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="padding-left:20%;padding-right:20%;">
+                                <div class="form-group">
+                                    <span>Mail Adresi</span>
+                                    <input class="input" type="email" asp-for="User.Mail" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="padding-left:20%;padding-right:20%;">
+                                <div class="form-group">
+                                    <span>Kullanıcı Adı</span>
+                                    <input class="input" type="text" asp-for="User.Username" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="padding-left:20%;padding-right:20%;">
+                                <div class="form-group">
+                                    <span>Şifre</span>
+                                    <input class="input" type="password" asp-for="User.Password" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <p>* Kullanıcı Sözleşmesi Ve Üye Kurallarını Onaylıyorum.</p>
+                                <button class="primary-button">Hemen Üye Ol</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <!-- catagories -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2>Kategoriler</h2>
+                    </div>
+                    <div class="category-widget">
+                        <ul>
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li><a href="/Anasayfa/Kategori/@item.Id" class="cat-1"><i class="fa fa-arrow-right" aria-hidden="true"></i> @item.CategoryName</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <!-- /catagories -->
+                <!-- catagories -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2>Çok Okunanlar</h2>
+                    </div>
+                    <div class="category-widget">
+                        <ul>
+                            @foreach (var item in Model.MostPopular)
+                            {
+                                <li>
+                                    <a href="/Anasayfa/Makale/@item.Id" class="cat-1">
+                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                        @if (item.Title.Length > 20)
+                                        {
+                                            @item.Title.Substring(0, 20) <span>...</span>
+                                        }
+                                        else
+                                        {
+                                            @item.Title
+                                        }
+                                    </a>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /catagories -->
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+

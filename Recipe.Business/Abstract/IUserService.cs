@@ -13,5 +13,7 @@ namespace Recipe.Business.Abstract
         void Update(User user);
         void Delete(int Id);
         User Login(User user);
+        User CheckByMail(User user);
+        User CheckByUsername(User user);
     }
 }

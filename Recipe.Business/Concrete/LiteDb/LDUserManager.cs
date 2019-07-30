@@ -51,5 +51,19 @@ namespace Recipe.Business.Concrete.LiteDb
             return result;
         }
 
+        public User CheckByMail(User user)
+        {
+            var result = new User();
+            result = _userDal.GetAll().Find(x => x.Mail == user.Mail);
+            return result;
+        }
+
+        public User CheckByUsername(User user)
+        {
+            var result = new User();
+            result = _userDal.GetAll().Find(x => x.Username == user.Username);
+            return result;
+        }
+
     }
 }

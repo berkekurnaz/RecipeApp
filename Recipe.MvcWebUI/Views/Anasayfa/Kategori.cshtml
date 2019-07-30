@@ -1,50 +1,11 @@
-﻿@model Recipe.MvcWebUI.Models.MainpageViewModel
-
+﻿@model Recipe.MvcWebUI.Models.CategoryViewModel
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *,ReflectionIT.Mvc.Paging
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Kategori";
     Layout = "~/Views/Shared/_LayoutMain.cshtml";
 }
 
-<!-- section -->
-<div class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- Main row -->
-        <div class="row">
-            @foreach (var item in Model.RecentlyArticles2)
-            {
-                <!-- post -->
-                <div class="col-md-6">
-                    <div class="post post-thumb">
-                        <a class="post-img" href="/Anasayfa/Makale/@item.Id"><img style="object-fit:cover;height:300px;" src="~/Makale/@item.Photo" alt=""></a>
-                        <div class="post-body">
-                            <div class="post-meta">
-                                <a class="post-category cat-2" href="/Anasayfa/Kategori/@item.Id">@item.Category.CategoryName</a>
-                                <span class="post-date">@item.CreatedDate</span>
-                            </div>
-                            <h3 class="post-title">
-                                <a href="/Anasayfa/Makale/@item.Id">
-                                    @if (item.Title.Length > 30)
-                                    {
-                                        @item.Title.Substring(0,20) <span>...</span>
-                                    }
-                                    else
-                                    {
-                                        @item.Title
-                                    }
-                                </a>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-                <!-- /post -->
-            }
-        </div>
-        <!-- / Main row -->
-    </div>
-    <!-- /container -->
-</div>
-<!-- /section -->
 <!-- section -->
 <div class="section">
     <!-- container -->
@@ -55,15 +16,15 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h2>Son Eklenenler</h2>
+                            <h2>@Model.Category.CategoryName Kategorisi Yazıları</h2>
                         </div>
                     </div>
-                    @foreach (var item in Model.RecentlyArticles5)
-                    {
-                        <!-- post -->
-                        <div class="col-md-12">
+
+                    <div class="col-md-12">
+                        @foreach (var item in Model.Articles)
+                        {
                             <div class="post post-row">
-                                <a class="post-img"   href="/Anasayfa/Makale/@item.Id"><img style="object-fit:cover;height:200px;" src="~/Makale/@item.Photo" alt=""></a>
+                                <a class="post-img" href="/Anasayfa/Makale/@item.Id"><img style="object-fit:cover;height:200px;" src="~/Makale/@item.Photo" alt=""></a>
                                 <div class="post-body">
                                     <h3 class="post-title"><a href="/Anasayfa/Makale/@item.Id">@item.Title</a></h3>
                                     <p>
@@ -83,9 +44,15 @@
                                     </div>
                                 </div>
                             </div>
+                        }
+                        <div class="container text-center">
+                            <br />
+                            @for (var p = 1; p <= Model.MyPagingModel.PageCount; p++)
+                            {
+                                <a href="@Url.Action("Kategori", new { sayfa = p })" class="btn btn-outline-info page-item">@p</a>
+                            }
                         </div>
-                        <!-- /post -->
-                    }
+                    </div>
                 </div>
             </div>
 
@@ -114,21 +81,21 @@
                         <ul>
                             @foreach (var item in Model.PopularArticles)
                             {
-                            <li>
-                                <a href="/Anasayfa/Makale/@item.Id" class="cat-1">
-                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                    @if (item.Title.Length > 20)
-                                    {
-                                        @item.Title.Substring(0,20) <span>...</span>
-                                    }
-                                    else
-                                    {
-                                        @item.Title
-                                    }
-                                </a>
-                            </li>
+                                <li>
+                                    <a href="/Anasayfa/Makale/@item.Id" class="cat-1">
+                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                        @if (item.Title.Length > 20)
+                                        {
+                                            @item.Title.Substring(0, 20) <span>...</span>
+                                        }
+                                        else
+                                        {
+                                            @item.Title
+                                        }
+                                    </a>
+                                </li>
                             }
-                            
+
                         </ul>
                     </div>
                 </div>

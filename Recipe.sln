@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipe.MvcWebUI", "Recipe.M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipe.CreatorApiKey", "Recipe.CreatorApiKey\Recipe.CreatorApiKey.csproj", "{0C703A73-8728-4E6A-9A2C-F813F4447CB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipe.PhotoOperations", "Recipe.PhotoOperations\Recipe.PhotoOperations.csproj", "{A79A1FE7-9559-4357-A025-0B0EE892DF1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipe.PhotoOperations", "Recipe.PhotoOperations\Recipe.PhotoOperations.csproj", "{A79A1FE7-9559-4357-A025-0B0EE892DF1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

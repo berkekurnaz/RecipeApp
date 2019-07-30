@@ -53,6 +53,11 @@ namespace Recipe.Business.Concrete.LiteDb
             return _articleDal.GetAll();
         }
 
+        public List<Article> GetArticlesByCategoryId(int categoryId)
+        {
+            return _articleDal.GetAll().Where(x => x.Category.Id == categoryId).OrderByDescending(x => x.Id).ToList();
+        }
+
         public List<Article> GetRecentlyArticles(int count)
         {
             return _articleDal.GetAll().OrderByDescending(x => x.Id).Take(count).ToList();
