@@ -1,6 +1,6 @@
-﻿@model Recipe.MvcWebUI.Models.UserViewModel
+﻿@model Recipe.MvcWebUI.Models.CommentViewModel
 @{
-    ViewData["Title"] = "Profil";
+    ViewData["Title"] = "Yorumlar";
     Layout = "~/Views/Shared/_LayoutMain.cshtml";
 }
 
@@ -12,7 +12,7 @@
                     <li><a href="/Uye/Profil/">Anasayfa</a></li>
                     <li>Profil</li>
                 </ul>
-                <h1>Üye Profili</h1>
+                <h1>Üye Yorumları</h1>
             </div>
         </div>
     </div>
@@ -25,49 +25,30 @@
             <div class="col-md-8">
                 <div class="section-row text-center">
 
-                    @if (TempData["UyeGuncellemeBasariMesaj"] != null)
+                    @if (TempData["YorumSilmeMesaj"] != null)
                     {
                         <div class="alert alert-success" role="alert">
-                            @TempData["UyeGuncellemeBasariMesaj"]
+                            @TempData["YorumSilmeMesaj"]
                         </div>
                     }
-                    @if (TempData["UyeFotografBasariMesaj"] != null)
-                    {
-                        <div class="alert alert-success" role="alert">
-                            @TempData["UyeFotografBasariMesaj"]
-                        </div>
-                    }
-                    @if (TempData["UyeSifreBasariMesaj"] != null)
-                    {
-                        <div class="alert alert-success" role="alert">
-                            @TempData["UyeSifreBasariMesaj"]
-                        </div>
-                    }
-
-                    <ul class="list-group">
-                        <li class="list-group-item active"><b>Üye Profil Bilgileri</b></li>
-                        <li class="list-group-item"><b>Ad Soyad : </b>@Model.User.NameSurname</li>
-                        <li class="list-group-item"><b>Mail Adresi : </b>@Model.User.Mail</li>
-                        <li class="list-group-item"><b>Üyelik Tarihi : </b>@Model.User.CreatedDate</li>
-                        <li class="list-group-item"><b>Kullanıcı Adı : </b>@Model.User.Username</li>
-                        <li class="list-group-item"><b>Kullanıcı Adı : </b>@Model.User.Password</li>
-                    </ul>
 
                     <ul class="list-group">
                         <li class="list-group-item active"><b>Yazdığım Yorumlar</b></li>
-                        <li class="list-group-item">
-                            <a href="/Uye/Yorumlar/" class="btn btn-info"><i class="fa fa-comment" aria-hidden="true"></i> Yorumları Listele</a>
-                        </li>
+                        @foreach (var item in Model.Comments)
+                        {
+                            <li class="list-group-item">
+                                @if (item.Title.Length > 50)
+                                {
+                                    <a href="/Uye/YorumDetay/@item.Id">@item.Title.Substring(0, 50)</a>
+                                }
+                                else
+                                {
+                                    <a href="/Uye/YorumDetay/@item.Id">@item.Title</a>
+                                }
+                            </li>
+                        }
                     </ul>
 
-                    <ul class="list-group">
-                        <li class="list-group-item active"><b>Üye İşlemleri</b></li>
-                        <li class="list-group-item">
-                            <a href="/Uye/Duzenle/" class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i> Profil Bilgileri Düzenle</a>
-                            <a href="/Uye/Fotograf/" class="btn btn-success"><i class="fa fa-camera" aria-hidden="true"></i> Profil Fotoğrafı Düzenle</a>
-                            <a href="/Uye/SifreDuzenle/" class="btn btn-danger"><i class="fa fa-key" aria-hidden="true"></i> Şifre Güncelle</a>
-                        </li>
-                    </ul>
 
                 </div>
             </div>

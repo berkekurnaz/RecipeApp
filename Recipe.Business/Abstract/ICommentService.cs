@@ -9,6 +9,7 @@ namespace Recipe.Business.Abstract
     {
         List<Comment> GetAll();
         List<Comment> GetAllByArticle(int articleId, int count);
+        List<Comment> GetAllByUser(int userId);
         Comment GetById(int Id);
         void Add(Comment comment);
         void Update(Comment comment);

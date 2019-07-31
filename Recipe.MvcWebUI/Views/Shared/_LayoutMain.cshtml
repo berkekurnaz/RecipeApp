@@ -1,4 +1,7 @@
 ﻿
+@using Microsoft.AspNetCore.Http
+
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     Layout = null;
 }
@@ -35,7 +38,6 @@
 
 </head>
 <body>
-
     <!-- Header -->
     <header id="header">
         <!-- Nav -->
@@ -56,13 +58,22 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Tüm Kategoriler
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li class="" href="#"><a href="/Anasayfa/Kategori/Tatlılar" style="margin:0;padding:5px">Tatlılar</a></li>
-                                <li class="" href="#"><a href="/Anasayfa/Kategori/Tatlılar" style="margin:0;padding:5px">Tatlılar</a></li>
-                                <li class="" href="#"><a href="/Anasayfa/Kategori/Tatlılar" style="margin:0;padding:5px">Tatlılar</a></li>
+                            <ul id="kategorilistesi" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <!-- Ajax İle Buraya Kategoriler Çekilecek -->
+                                @foreach (var item in Model.Categories)
+                                {
+                                    <li>@item.CategoryName</li>
+                                }
                             </ul>
                         </li>
-                        <li><a href="/Uye/Giris/">Üye Girişi</a></li>
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("SessionUserId") != null)
+                        {
+                            <li><a href="/Uye/Profil/">Üye Profili</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/Uye/Giris/">Üye Girişi</a></li>
+                        }
                         <li><a href="/Anasayfa/Iletisim/">İletişim</a></li>
                     </ul>
                     <!-- /nav -->
@@ -76,47 +87,52 @@
                         </div>
                     </div>
                     <!-- /search & aside toggle -->
-                </div>
             </div>
-            <!-- /Main Nav -->
-            <!-- Aside Nav -->
-            <div id="nav-aside">
-                <!-- nav -->
-                <div class="section-row">
-                    <ul class="nav-aside-menu">
-                        <li><a href="/Anasayfa/Index/">Anasayfa</a></li>
-                        <li><a href="/Anasayfa/Hakkimizda/">Hakkımızda</a></li>
-                        <li class="dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Tüm Kategoriler
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li class="" href="#"><a href="/Anasayfa/Kategori/Tatlılar" style="margin:0;padding:5px">Tatlılar</a></li>
-                                <li class="" href="#"><a href="/Anasayfa/Kategori/Tatlılar" style="margin:0;padding:5px">Tatlılar</a></li>
-                                <li class="" href="#"><a href="/Anasayfa/Kategori/Tatlılar" style="margin:0;padding:5px">Tatlılar</a></li>
-                            </ul>
-                        </li>
+        </div>
+        <!-- /Main Nav -->
+        <!-- Aside Nav -->
+        <div id="nav-aside">
+            <!-- nav -->
+            <div class="section-row">
+                <ul class="nav-aside-menu">
+                    <li><a href="/Anasayfa/Index/">Anasayfa</a></li>
+                    <li><a href="/Anasayfa/Hakkimizda/">Hakkımızda</a></li>
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Tüm Kategoriler
+                        </a>
+                        <ul id="kategorilistesi2" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <!-- Ajax İle Buraya Kategoriler Çekilecek -->
+                        </ul>
+                    </li>
+                    @if (HttpContextAccessor.HttpContext.Session.GetString("SessionUserId") != null)
+                    {
+                        <li><a href="/Uye/Profil/">Üye Profili</a></li>
+                    }
+                    else
+                    {
                         <li><a href="/Uye/Giris/">Üye Girişi</a></li>
-                        <li><a href="/Anasayfa/Iletisim/">İletişim</a></li>
-                    </ul>
-                </div>
-                <!-- /nav -->
-                <!-- social links -->
-                <div class="section-row">
-                    <h3>Sosyal Medya</h3>
-                    <ul class="nav-aside-social">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                    </ul>
-                </div>
-                <!-- /social links -->
-                <!-- aside nav close -->
-                <button class="nav-aside-close"><i class="fa fa-times"></i></button>
-                <!-- /aside nav close -->
+                    }
+                    <li><a href="/Anasayfa/Iletisim/">İletişim</a></li>
+                </ul>
             </div>
-            <!-- Aside Nav -->
+            <!-- /nav -->
+            <!-- social links -->
+            <div class="section-row">
+                <h3>Sosyal Medya</h3>
+                <ul class="nav-aside-social">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                </ul>
+            </div>
+            <!-- /social links -->
+            <!-- aside nav close -->
+            <button class="nav-aside-close"><i class="fa fa-times"></i></button>
+            <!-- /aside nav close -->
+        </div>
+        <!-- Aside Nav -->
         </div>
         <!-- /Nav -->
     </header>
@@ -156,18 +172,14 @@
                                 <ul class="footer-links">
                                     <li><a href="/Anasayfa/Hakkimizda/">Hakkımızda</a></li>
                                     <li><a href="/Uye/Giris/">Üye Girişi</a></li>
-                                    <li><a href="/Anasayfa/Hakkimizda/">İletişim</a></li>
+                                    <li><a href="/Anasayfa/Iletisim/">İletişim</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="footer-widget">
                                 <h3 class="footer-title">Kategoriler</h3>
-                                <ul class="footer-links">
-                                    <li><a href="category.html">Web Design</a></li>
-                                    <li><a href="category.html">JavaScript</a></li>
-                                    <li><a href="category.html">Css</a></li>
-                                </ul>
+                                <ul class="footer-links"></ul>
                             </div>
                         </div>
                     </div>
@@ -191,12 +203,11 @@
         <!-- /container -->
     </footer>
     <!-- /Footer -->
-
     <!-- jQuery Plugins -->
     <script src="~/TemplateMain/js/jquery.min.js"></script>
     <script src="~/TemplateMain/js/bootstrap.min.js"></script>
     <script src="~/TemplateMain/js/main.js"></script>
 
+
 </body>
 </html>
-

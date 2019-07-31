@@ -76,6 +76,11 @@ namespace Recipe.Business.Concrete.LiteDb
             return _commentDal.GetAll().FindAll(x => x.Article.Id == articleId).OrderByDescending(x => x.Id).Take(count).ToList();
         }
 
+        public List<Comment> GetAllByUser(int userId)
+        {
+            return _commentDal.GetAll().FindAll(x => x.User.Id == userId).OrderByDescending(x => x.Id).ToList();
+        }
+
         public Comment GetById(int Id)
         {
             return _commentDal.GetById(Id);

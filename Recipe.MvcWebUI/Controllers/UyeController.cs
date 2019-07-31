@@ -18,6 +18,7 @@ namespace Recipe.MvcWebUI.Controllers
         public LDArticleManager articleManager = new LDArticleManager("Articles");
         public LDCategoryManager categoryManager = new LDCategoryManager("Categories");
         public LDUserManager userManager = new LDUserManager("Users");
+        public LDCommentManager commentManager = new LDCommentManager("Comments");
 
         /* Uye Giris Ekrani Ve Islemi */
         public IActionResult Giris()
@@ -98,6 +99,52 @@ namespace Recipe.MvcWebUI.Controllers
                 User = userManager.GetById(userId)
             };
             return View(userViewModel);
+        }
+
+        /* Uyenin Yorumlar Ekrani */
+        public IActionResult Yorumlar()
+        {
+            var userId = Convert.ToInt32(HttpContext.Session.GetString("SessionUserId"));
+            CommentViewModel commentViewModel = new CommentViewModel()
+            {
+                Categories = categoryManager.GetAll(),
+                MostPopular = articleManager.GetMostPopularArticles(),
+                User = userManager.GetById(userId),
+                Comments = commentManager.GetAllByUser(userId)
+            };
+            return View(commentViewModel);
+        }
+
+        /* Uyenin Yorum Detay Ekrani */
+        public IActionResult YorumDetay(int Id)
+        {
+            var userId = Convert.ToInt32(HttpContext.Session.GetString("SessionUserId"));
+            var comment = commentManager.GetById(Id);
+            if (comment == null)
+            {
+                return RedirectToAction("Hata", "Anasayfa");
+            }
+            if (comment.User.Id != userId)
+            {
+                return RedirectToAction("Hata", "Anasayfa");
+            }
+            CommentViewModel commentViewModel = new CommentViewModel()
+            {
+                Categories = categoryManager.GetAll(),
+                MostPopular = articleManager.GetMostPopularArticles(),
+                User = userManager.GetById(userId),
+                Comments = commentManager.GetAllByUser(userId),
+                comment = comment
+            };
+            return View(commentViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult YorumSil(int Id)
+        {
+            commentManager.Delete(Id);
+            TempData["YorumSilmeMesaj"] = "Yorum Başarıyla Silindi.";
+            return RedirectToAction("Yorumlar");
         }
 
         /* Uyenin Profil Duzenleme Ekrani Ve Islemi */

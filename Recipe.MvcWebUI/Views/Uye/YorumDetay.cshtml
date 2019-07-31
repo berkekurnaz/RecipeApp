@@ -1,6 +1,6 @@
-﻿@model Recipe.MvcWebUI.Models.UserViewModel
+﻿@model Recipe.MvcWebUI.Models.CommentViewModel
 @{
-    ViewData["Title"] = "Profil";
+    ViewData["Title"] = "Yorum Detay";
     Layout = "~/Views/Shared/_LayoutMain.cshtml";
 }
 
@@ -12,7 +12,7 @@
                     <li><a href="/Uye/Profil/">Anasayfa</a></li>
                     <li>Profil</li>
                 </ul>
-                <h1>Üye Profili</h1>
+                <h1>Üye Yorumları</h1>
             </div>
         </div>
     </div>
@@ -25,49 +25,14 @@
             <div class="col-md-8">
                 <div class="section-row text-center">
 
-                    @if (TempData["UyeGuncellemeBasariMesaj"] != null)
-                    {
-                        <div class="alert alert-success" role="alert">
-                            @TempData["UyeGuncellemeBasariMesaj"]
-                        </div>
-                    }
-                    @if (TempData["UyeFotografBasariMesaj"] != null)
-                    {
-                        <div class="alert alert-success" role="alert">
-                            @TempData["UyeFotografBasariMesaj"]
-                        </div>
-                    }
-                    @if (TempData["UyeSifreBasariMesaj"] != null)
-                    {
-                        <div class="alert alert-success" role="alert">
-                            @TempData["UyeSifreBasariMesaj"]
-                        </div>
-                    }
-
                     <ul class="list-group">
-                        <li class="list-group-item active"><b>Üye Profil Bilgileri</b></li>
-                        <li class="list-group-item"><b>Ad Soyad : </b>@Model.User.NameSurname</li>
-                        <li class="list-group-item"><b>Mail Adresi : </b>@Model.User.Mail</li>
-                        <li class="list-group-item"><b>Üyelik Tarihi : </b>@Model.User.CreatedDate</li>
-                        <li class="list-group-item"><b>Kullanıcı Adı : </b>@Model.User.Username</li>
-                        <li class="list-group-item"><b>Kullanıcı Adı : </b>@Model.User.Password</li>
+                        <li class="list-group-item active"><b>Yorum Detayı</b></li>
+                        <li class="list-group-item"><b>İlgili Makale : </b><a href="/Anasayfa/Makale/@Model.comment.Article.Id">@Model.comment.Article.Title</a></li>
+                        <li class="list-group-item"><b>Tarih : </b>@Model.comment.CreatedDate</li>
+                        <li class="list-group-item">@Model.comment.Title</li>
                     </ul>
 
-                    <ul class="list-group">
-                        <li class="list-group-item active"><b>Yazdığım Yorumlar</b></li>
-                        <li class="list-group-item">
-                            <a href="/Uye/Yorumlar/" class="btn btn-info"><i class="fa fa-comment" aria-hidden="true"></i> Yorumları Listele</a>
-                        </li>
-                    </ul>
-
-                    <ul class="list-group">
-                        <li class="list-group-item active"><b>Üye İşlemleri</b></li>
-                        <li class="list-group-item">
-                            <a href="/Uye/Duzenle/" class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i> Profil Bilgileri Düzenle</a>
-                            <a href="/Uye/Fotograf/" class="btn btn-success"><i class="fa fa-camera" aria-hidden="true"></i> Profil Fotoğrafı Düzenle</a>
-                            <a href="/Uye/SifreDuzenle/" class="btn btn-danger"><i class="fa fa-key" aria-hidden="true"></i> Şifre Güncelle</a>
-                        </li>
-                    </ul>
+                    <a href="" data-toggle="modal" data-target="#deleteModal" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Yorum Sil</a>
 
                 </div>
             </div>
@@ -123,3 +88,25 @@
     <!-- /container -->
 </div>
 
+<!-- Delete Modal-->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Yorum Silme</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form asp-controller="Uye" asp-action="YorumSil" asp-route-Id="@Model.comment.Id" method="post" enctype="multipart/form-data" class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
+                <div class="modal-body">
+                    Bu Yorumu Gerçekten Silmek İstediğine Emin Misin ? @Model.comment.Id
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">İptal Et</button>
+                    <button type="submit" class="btn btn-danger">Yorum Sil</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

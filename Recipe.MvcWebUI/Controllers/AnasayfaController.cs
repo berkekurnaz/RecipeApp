@@ -34,6 +34,16 @@ namespace Recipe.MvcWebUI.Controllers
             return View(mainpageViewModel);
         }
 
+        public IActionResult KategoriGetir()
+        {
+            MyLayoutViewModel myLayoutViewModel = new MyLayoutViewModel()
+            {
+                Setting = settingManager.GetById(1),
+                Categories = categoryManager.GetAll()
+            };
+            return View(myLayoutViewModel);
+        }
+
         /* Makale Detay Sayfası */
         public IActionResult Makale(int Id)
         {
@@ -104,6 +114,12 @@ namespace Recipe.MvcWebUI.Controllers
             contactManager.Add(contact);
             TempData["ContactSuccessMessage"] = "Mesaj Başarıyla Gönderildi";
             return RedirectToAction("Iletisim");
+        }
+
+        /* Hata Sayfasi */
+        public IActionResult Hata()
+        {
+            return View();
         }
 
     }
