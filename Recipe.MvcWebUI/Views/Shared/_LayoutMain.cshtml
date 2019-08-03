@@ -1,6 +1,5 @@
 ﻿
 @using Microsoft.AspNetCore.Http
-
 @inject IHttpContextAccessor HttpContextAccessor
 @{
     Layout = null;
@@ -38,171 +37,14 @@
 
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <!-- Nav -->
-        <div id="nav">
-            <!-- Main Nav -->
-            <div id="nav-fixed">
-                <ul class="container">
-                    <!-- logo -->
-                    <div class="nav-logo">
-                        <a href="/Anasayfa/Index/" class="logo">Lezzetli Sunumlarım</a>
-                    </div>
-                    <!-- /logo -->
-                    <!-- nav -->
-                    <ul class="nav-menu nav navbar-nav">
-                        <li><a href="/Anasayfa/Index/">Anasayfa</a></li>
-                        <li><a href="/Anasayfa/Hakkimizda/">Hakkımızda</a></li>
-                        <li class="dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Tüm Kategoriler
-                            </a>
-                            <ul id="kategorilistesi" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <!-- Ajax İle Buraya Kategoriler Çekilecek -->
-                                @foreach (var item in Model.Categories)
-                                {
-                                    <li>@item.CategoryName</li>
-                                }
-                            </ul>
-                        </li>
-                        @if (HttpContextAccessor.HttpContext.Session.GetString("SessionUserId") != null)
-                        {
-                            <li><a href="/Uye/Profil/">Üye Profili</a></li>
-                        }
-                        else
-                        {
-                            <li><a href="/Uye/Giris/">Üye Girişi</a></li>
-                        }
-                        <li><a href="/Anasayfa/Iletisim/">İletişim</a></li>
-                    </ul>
-                    <!-- /nav -->
-                    <!-- search & aside toggle -->
-                    <div class="nav-btns">
-                        <button class="aside-btn"><i class="fa fa-bars"></i></button>
-                        <button class="search-btn"><i class="fa fa-search"></i></button>
-                        <div class="search-form">
-                            <input class="search-input" type="text" name="search" placeholder="Enter Your Search ...">
-                            <button class="search-close"><i class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-                    <!-- /search & aside toggle -->
-            </div>
-        </div>
-        <!-- /Main Nav -->
-        <!-- Aside Nav -->
-        <div id="nav-aside">
-            <!-- nav -->
-            <div class="section-row">
-                <ul class="nav-aside-menu">
-                    <li><a href="/Anasayfa/Index/">Anasayfa</a></li>
-                    <li><a href="/Anasayfa/Hakkimizda/">Hakkımızda</a></li>
-                    <li class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Tüm Kategoriler
-                        </a>
-                        <ul id="kategorilistesi2" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <!-- Ajax İle Buraya Kategoriler Çekilecek -->
-                        </ul>
-                    </li>
-                    @if (HttpContextAccessor.HttpContext.Session.GetString("SessionUserId") != null)
-                    {
-                        <li><a href="/Uye/Profil/">Üye Profili</a></li>
-                    }
-                    else
-                    {
-                        <li><a href="/Uye/Giris/">Üye Girişi</a></li>
-                    }
-                    <li><a href="/Anasayfa/Iletisim/">İletişim</a></li>
-                </ul>
-            </div>
-            <!-- /nav -->
-            <!-- social links -->
-            <div class="section-row">
-                <h3>Sosyal Medya</h3>
-                <ul class="nav-aside-social">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                </ul>
-            </div>
-            <!-- /social links -->
-            <!-- aside nav close -->
-            <button class="nav-aside-close"><i class="fa fa-times"></i></button>
-            <!-- /aside nav close -->
-        </div>
-        <!-- Aside Nav -->
-        </div>
-        <!-- /Nav -->
-    </header>
-    <!-- /Header -->
+
+    @await Component.InvokeAsync("LayoutHeader")
 
     @RenderBody()
 
 
-    <!-- Footer -->
-    <footer id="footer">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="footer-widget">
-                        <div class="footer-logo">
-                            <a href="/Anasayfa/Index/" class="logo">Lezzetli Sunumlarım</a>
-                        </div>
-                        <ul class="footer-nav">
-                            <li><a href="/Anasayfa/Hakkimizda/">Hakkımızda</a></li>
-                            <li><a href="/Anasayfa/Iletisim/">İletişim</a></li>
-                        </ul>
-                        <div class="footer-copyright">
-                            <span>
-                                @DateTime.Now.Year Tarihinde Geliştirilmiştir &copy;
-                            </span>
-                        </div>
-                    </div>
-                </div>
+    @await Component.InvokeAsync("LayoutFooter")
 
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="footer-widget">
-                                <h3 class="footer-title">Biz Kimiz</h3>
-                                <ul class="footer-links">
-                                    <li><a href="/Anasayfa/Hakkimizda/">Hakkımızda</a></li>
-                                    <li><a href="/Uye/Giris/">Üye Girişi</a></li>
-                                    <li><a href="/Anasayfa/Iletisim/">İletişim</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="footer-widget">
-                                <h3 class="footer-title">Kategoriler</h3>
-                                <ul class="footer-links"></ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="footer-widget">
-                        <h3 class="footer-title">Sosyal Medya</h3>
-                        <ul class="footer-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </footer>
-    <!-- /Footer -->
     <!-- jQuery Plugins -->
     <script src="~/TemplateMain/js/jquery.min.js"></script>
     <script src="~/TemplateMain/js/bootstrap.min.js"></script>

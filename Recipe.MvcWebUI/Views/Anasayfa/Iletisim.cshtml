@@ -35,6 +35,32 @@
                         <li><p><strong>Mail:</strong> <a href="#">@Model.Setting.Mail</a></p></li>
                         <li><p><strong>Telefon:</strong> @Model.Setting.Phone</p></li>
                     </ul>
+                    <ul class="footer-social">
+                        @if (Model.Setting.Facebook != "bos")
+                        {
+                        <li>
+                            <a href="@Model.Setting.Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        }
+                        @if (Model.Setting.Instagram != "bos")
+                        {
+                        <li>
+                            <a href="@Model.Setting.Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        }
+                        @if (Model.Setting.Twitter != "bos")
+                        {
+                            <li>
+                                <a href="@Model.Setting.Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                            </li>
+                        }
+                        @if (Model.Setting.Youtube != "bos")
+                        {
+                            <li>
+                                <a href="@Model.Setting.Youtube" target="_blank"><i class="fa fa-youtube"></i></a>
+                            </li>
+                        }
+                    </ul>
                 </div>
             </div>
             <div class="col-md-5 col-md-offset-1">

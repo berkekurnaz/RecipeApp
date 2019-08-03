@@ -34,16 +34,6 @@ namespace Recipe.MvcWebUI.Controllers
             return View(mainpageViewModel);
         }
 
-        public IActionResult KategoriGetir()
-        {
-            MyLayoutViewModel myLayoutViewModel = new MyLayoutViewModel()
-            {
-                Setting = settingManager.GetById(1),
-                Categories = categoryManager.GetAll()
-            };
-            return View(myLayoutViewModel);
-        }
-
         /* Makale Detay Sayfası */
         public IActionResult Makale(int Id)
         {
@@ -119,6 +109,14 @@ namespace Recipe.MvcWebUI.Controllers
         /* Hata Sayfasi */
         public IActionResult Hata()
         {
+            return View();
+        }
+
+        public IActionResult CountPlus(int articleId)
+        {
+            var article = articleManager.GetById(articleId);
+            article.ReadCount += 1;
+            articleManager.Update(article);
             return View();
         }
 
