@@ -18,6 +18,7 @@ namespace Recipe.MvcWebUI.Controllers
         LDCommentManager commentManager = new LDCommentManager("Comments");
         LDContactManager contactManager = new LDContactManager("Contacts");
         LDAuthorManager authorManager = new LDAuthorManager("Authors");
+        LDSettingManager settingManager = new LDSettingManager("Settings");
 
         [AdminAuthFilter]
         public IActionResult Index()
@@ -31,6 +32,28 @@ namespace Recipe.MvcWebUI.Controllers
 
         public IActionResult Giris()
         {
+            if (authorManager.GetAll().Count == 0)
+            {
+                Author author = new Author("Author","Author Description", "defaultauthor.png", "myapi1881hgftwshjjcc1923mka0001",DateTime.Now.ToShortDateString(), "admin", "1111");
+                authorManager.Add(author);
+            }
+            if (settingManager.GetById(1) == null)
+            {
+                Setting setting = new Setting();
+                setting.Name = "MyBlog";
+                setting.Description = "MyBlog Description";
+                setting.Mail = "myblog@mail.com";
+                setting.Phone = "";
+                setting.Icon = "icon.png";
+                setting.SeoName = "";
+                setting.SeoHeader = "";
+                setting.SeoDescription = "";
+                setting.Facebook = "bos";
+                setting.Instagram = "bos";
+                setting.Twitter = "bos";
+                setting.Youtube = "bos";
+                settingManager.Add(setting);
+            }
             return View();
         }
 
@@ -48,7 +71,6 @@ namespace Recipe.MvcWebUI.Controllers
             return View();
         }
 
-        [HttpPost]
         public IActionResult Cikis()
         {
             HttpContext.Session.Clear();
