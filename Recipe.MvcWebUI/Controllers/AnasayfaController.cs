@@ -37,6 +37,11 @@ namespace Recipe.MvcWebUI.Controllers
         /* Makale Detay Sayfası */
         public IActionResult Makale(int Id)
         {
+            var article = articleManager.GetById(Id);
+            if (article == null)
+            {
+                return RedirectToAction("Hata", "Anasayfa");
+            }
             ArticleViewModel articleViewModel = new ArticleViewModel()
             {
                 Article = articleManager.GetById(Id),
@@ -64,9 +69,17 @@ namespace Recipe.MvcWebUI.Controllers
         /* Kategoriye Ait Makale Listeleme Sayfası */
         public IActionResult Kategori(int Id, int sayfa=1)
         {
+            var category = categoryManager.GetById(Id);
+            if (category == null)
+            {
+                return RedirectToAction("Hata", "Anasayfa");
+            }
+            int articlesCount = articleManager.GetArticlesByCategoryId(Id).Count;
+            int pageCount = articlesCount - (sayfa * 5);
+
             CategoryViewModel categoryViewModel = new CategoryViewModel()
             {
-                Articles = articleManager.GetArticlesByCategoryId(Id),
+                Articles = articleManager.GetArticlesByCategoryId(Id).Skip(pageCount).Take(5).OrderByDescending(x => x.Id).ToList(),
                 Categories = categoryManager.GetAll(),
                 Category = categoryManager.GetById(Id),
                 PopularArticles = articleManager.GetMostPopularArticles(),

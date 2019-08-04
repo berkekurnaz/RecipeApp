@@ -39,17 +39,17 @@
                                         }
                                     </p>
                                     <div class="post-meta">
-                                        <a class="post-category cat-2" href="/Anasayfa/Kategori/@item.Category.CategoryName">@item.Category.CategoryName</a>
+                                        <a class="post-category cat-2" href="/Anasayfa/Kategori/@item.Category.Id">@item.Category.CategoryName</a>
                                         <span class="post-date">@item.CreatedDate</span>
                                     </div>
                                 </div>
                             </div>
                         }
-                        <div class="container text-center">
+                        <div class="text-center">
                             <br />
                             @for (var p = 1; p <= Model.MyPagingModel.PageCount; p++)
                             {
-                                <a href="@Url.Action("Kategori", new { sayfa = p })" class="btn btn-outline-info page-item">@p</a>
+                                <a href="@Url.Action("Kategori", new { sayfa = p })" style="border:1px solid black" class="btn btn-outline-primary page-item">@p</a>
                             }
                         </div>
                     </div>

@@ -55,7 +55,7 @@ namespace Recipe.Business.Concrete.LiteDb
 
         public List<Article> GetArticlesByCategoryId(int categoryId)
         {
-            return _articleDal.GetAll().Where(x => x.Category.Id == categoryId).OrderByDescending(x => x.Id).ToList();
+            return _articleDal.GetAll().Where(x => x.Category.Id == categoryId).ToList();
         }
 
         public List<Article> GetRecentlyArticles(int count)
