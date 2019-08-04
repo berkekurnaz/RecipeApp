@@ -69,6 +69,23 @@ namespace Recipe.MvcWebUI.Controllers.Api
             }
         }
 
+
+        /******************** Example : www.yoursite.com/api/AContacts/yourApiKey ********************/
+        [HttpGet("{id}/{count}/{apiKey}")]
+        public async Task<ActionResult> GetAllByCount(int Id, int count, string apiKey)
+        {
+            var author = authorManager.CheckByApiKey(apiKey);
+            if (author != null)
+            {
+                var query = contactManager.GetAll().OrderByDescending(x => x.Id).Take(count).ToList();
+                return Ok(query);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
         /******************** Example : www.yoursite.com/api/AContacts/yourApiKey ********************/
         [HttpDelete("{id}/{apiKey}")]
         public async Task<ActionResult> Delete(int Id, string apiKey)

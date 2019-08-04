@@ -47,10 +47,10 @@ Route | Http Verb | Post Body | Description
 #### Comments Api
 Route | Http Verb | Post Body | Description
 --- | --- | --- | ---
-/api/ AComments/ articleId/ commentId/apiKey | `GET` | Empty | List All Comments By Article Id
-/api/ AComments/ commentId/ apiKey | `GET` | Empty | Show Comment By Id Number
+/api/ AComments/ articleId/apiKey | `GET` | Empty | List All Comments By Article Id
+/api/ AComments/ articleId/ commentId/ apiKey | `GET` | Empty | Show Comment By Id Number
 
 #### Settings Api
 Route | Http Verb | Post Body | Description
 --- | --- | --- | ---
-/api/ ASettings/ 1/ apiKey | `GET` | Empty | Show Setting Information By Setting Id Number
+/api/ ASettings/ apiKey | `GET` | Empty | Show Setting Information By Setting Id Number
