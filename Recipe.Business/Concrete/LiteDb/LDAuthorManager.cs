@@ -51,5 +51,12 @@ namespace Recipe.Business.Concrete.LiteDb
             return result;
         }
 
+        public Author CheckByApiKey(string apiKey)
+        {
+            var result = new Author();
+            result = _authorDal.GetAll().Find(x => x.ApiKey == apiKey);
+            return result;
+        }
+
     }
 }

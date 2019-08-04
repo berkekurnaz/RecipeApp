@@ -13,5 +13,6 @@ namespace Recipe.Business.Abstract
         void Update(Author author);
         void Delete(int Id);
         Author Login(Author author);
+        Author CheckByApiKey(string apiKey);
     }
 }

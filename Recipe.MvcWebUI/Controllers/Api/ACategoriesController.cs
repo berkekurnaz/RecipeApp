@@ -17,11 +17,51 @@ namespace Recipe.MvcWebUI.Controllers.Api
     {
 
         LDCategoryManager categoryManager = new LDCategoryManager("Categories");
+        LDAuthorManager authorManager = new LDAuthorManager("Authors");
 
-        public async Task<ActionResult> Get()
+        [HttpGet("{apiKey}")]
+        public async Task<ActionResult> GetAll(string apiKey)
         {
-            var query = categoryManager.GetAll();
-            return Ok(query);
+            var author = authorManager.CheckByApiKey(apiKey);
+            if (author != null)
+            {
+                var query = categoryManager.GetAll();
+                return Ok(query);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet("{id}/{apiKey}")]
+        public async Task<ActionResult> GetById(int Id, string apiKey)
+        {
+            var author = authorManager.CheckByApiKey(apiKey);
+            if (author != null)
+            {
+                var query = categoryManager.GetById(Id);
+                return Ok(query);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet("{id}/{count}/{apiKey}")]
+        public async Task<ActionResult> GetByCount(int Id, int count, string apiKey)
+        {
+            var author = authorManager.CheckByApiKey(apiKey);
+            if (author != null)
+            {
+                var query = categoryManager.GetAll().Take(count).ToList();
+                return Ok(query);
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
     }
