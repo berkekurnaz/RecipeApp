@@ -33,7 +33,10 @@
                     <p>Buradaki İletişim Bilgileri Aracılığıyla Veya Yandaki Form Aracılığıyla Bizimle İletişim Kurabilirsiniz.</p>
                     <ul class="list-style">
                         <li><p><strong>Mail:</strong> <a href="#">@Model.Setting.Mail</a></p></li>
-                        <li><p><strong>Telefon:</strong> @Model.Setting.Phone</p></li>
+                        @if (Model.Setting.Phone != null)
+                        {
+                            <li><p><strong>Telefon:</strong> @Model.Setting.Phone</p></li>
+                        }
                     </ul>
                     <ul class="footer-social">
                         @if (Model.Setting.Facebook != "bos")
@@ -71,7 +74,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <span>Ad Soyad</span>
-                                    <input class="input" type="text" asp-for="Contact.Mail" required>
+                                    <input class="input" type="text" asp-for="Contact.NameSurname" required>
                                 </div>
                             </div>
                             <div class="col-md-12">

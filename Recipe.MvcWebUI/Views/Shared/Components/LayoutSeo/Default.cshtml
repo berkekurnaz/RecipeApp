@@ -1,0 +1,23 @@
+﻿@model Recipe.MvcWebUI.Models.MyLayoutViewModel
+
+<title>@Model.Setting.Name</title>
+
+<meta name="title" content="@Model.Setting.Name" />
+@if (Model.Setting.SeoDescription != null)
+{
+    <meta name="description" content="@Model.Setting.SeoDescription" />
+}
+@if (Model.Setting.SeoName != null)
+{
+    <meta name="keywords" content="@Model.Setting.SeoName" />
+}
+@if (Model.Setting.SeoHeader != null)
+{
+    @Html.Raw(Model.Setting.SeoHeader)
+}
+@if (Model.Setting.Icon != "icon.png")
+{
+    <link rel="icon" href="@Model.Setting.Icon">
+}
+
+<meta name="copyright" content="2019" />
