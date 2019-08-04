@@ -86,5 +86,28 @@ namespace Recipe.MvcWebUI.Controllers.Api
             }
         }
 
+        /******************** Example : www.yoursite.com/api/AContacts/yourApiKey ********************/
+        [HttpPut("{id}/{apiKey}")]
+        public async Task<ActionResult> Update(int Id, [FromBody] Contact model, string apiKey)
+        {
+            var author = authorManager.CheckByApiKey(apiKey);
+            if (author != null)
+            {
+                var item = contactManager.GetById(Id);
+
+                if (model.NameSurname != null) { item.NameSurname = model.NameSurname; }
+                if (model.Mail != null) { item.Mail = model.Mail; }
+                if (model.Title != null) { item.Title = model.Title; }
+                if (model.Content != null) { item.Content = model.Content; }
+
+                contactManager.Update(item);
+                return Ok(item);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
     }
 }
