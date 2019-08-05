@@ -1,0 +1,14 @@
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\bin\Release\netcoreapp2.0\Recipe.Business.deps.json
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\bin\Release\netcoreapp2.0\Recipe.Business.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\bin\Release\netcoreapp2.0\Recipe.Business.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\bin\Release\netcoreapp2.0\Recipe.DataAccess.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\bin\Release\netcoreapp2.0\Recipe.Entities.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\bin\Release\netcoreapp2.0\Recipe.DataAccess.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\bin\Release\netcoreapp2.0\Recipe.Entities.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\obj\Release\netcoreapp2.0\Recipe.Business.csprojAssemblyReference.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\obj\Release\netcoreapp2.0\Recipe.Business.csproj.CoreCompileInputs.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\obj\Release\netcoreapp2.0\Recipe.Business.AssemblyInfoInputs.cache
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\obj\Release\netcoreapp2.0\Recipe.Business.AssemblyInfo.cs
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\obj\Release\netcoreapp2.0\Recipe.Business.csproj.CopyComplete
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\obj\Release\netcoreapp2.0\Recipe.Business.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.Business\obj\Release\netcoreapp2.0\Recipe.Business.pdb
