@@ -12,7 +12,7 @@ Download the Recipe app file and upload it to the server.Then enter the dashboar
 You can also edit the application as desired using the source code here.
 Make improvements to the code and let everyone use it cheerfully.<br>
 
-Download Recipe App For Web : [Download Recipe App](https://github.com/berkekurnaz/RecipeApp/RecipeApplication/recipeapp.rar)
+Download Recipe App For Web : [Download Recipe App](http://app.berkekurnaz.com/recipeapp.rar)
 
 ## What's Inside
 - This application includes a dashboard for control
@@ -21,7 +21,7 @@ Download Recipe App For Web : [Download Recipe App](https://github.com/berkekurn
 - There is a contact page for visitors to contact you.
 
 ## How To Install ?
-1-) [Download Recipe App](https://github.com/berkekurnaz/RecipeApp/RecipeApplication/recipeapp.rar) <br>
+1-) [Download Recipe App](http://app.berkekurnaz.com/recipeapp.rar) <br>
 2-) Upload the downloaded file to your server. <br>
 3-) Go to www.yoursite.com/Yonetici/Giris route. <br>
 4-) Enter **`admin`** in the Username field. <br>
@@ -41,12 +41,12 @@ Download Recipe App For Web : [Download Recipe App](https://github.com/berkekurn
 ## Versions
 | Version Name       | Created Date | Is Stable | Download Link         
 | :-------------: |:-------------:| :-------------:| :-------------:|
-| 1.0.0    | 08/05/2019 | Yes | [Download](https://github.com/berkekurnaz/RecipeApp/RecipeApplication/recipeapp.rar)
+| 1.0.0    | 08/05/2019 | Yes | [Download](http://app.berkekurnaz.com/recipeapp.rar)
 
 ## Images
-![Recipe App-1](https://github.com/berkekurnaz/RecipeApp/RecipeApplication/rec1.png)
-![Recipe App-2](https://github.com/berkekurnaz/RecipeApp/RecipeApplication/rec2.png)
-![Recipe App-3](https://github.com/berkekurnaz/RecipeApp/RecipeApplication/rec3.png)
+![Recipe App-1](https://i.resimyukle.xyz/MBe0Ua.png)
+![Recipe App-2](https://i.resimyukle.xyz/LQz8H2.png)
+![Recipe App-3](https://i.resimyukle.xyz/3z8dNO.png)
 
 ## Api Usage
 
