@@ -46,7 +46,7 @@
                     <button class="aside-btn"><i class="fa fa-bars"></i></button>
                     <button class="search-btn"><i class="fa fa-search"></i></button>
                     <div class="search-form">
-                        <input class="search-input" type="text" name="search" placeholder="Enter Your Search ...">
+                        <input class="search-input" type="text" name="search" placeholder="Aramak İstediğin Yazı ...">
                         <button class="search-close"><i class="fa fa-times"></i></button>
                     </div>
                 </div>
@@ -126,3 +126,13 @@
     <!-- /Nav -->
 </header>
 <!-- /Header -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $('.search-input').keyup(function (e) {
+        var value = $('.search-input').val().toString();
+        if (e.keyCode == 13) {
+            window.location.href = "/Anasayfa/YaziAra?text=" + value;
+        }
+    });
+</script>

@@ -45,9 +45,9 @@ namespace Recipe.MvcWebUI.Controllers
                 setting.Mail = "myblog@mail.com";
                 setting.Phone = "";
                 setting.Icon = "icon.png";
-                setting.SeoName = "";
+                setting.SeoName = "MyBlog Name";
                 setting.SeoHeader = "";
-                setting.SeoDescription = "";
+                setting.SeoDescription = "MyBlog Description";
                 setting.Facebook = "bos";
                 setting.Instagram = "bos";
                 setting.Twitter = "bos";

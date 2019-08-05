@@ -8,6 +8,7 @@ namespace Recipe.Business.Abstract
     public interface IArticleService
     {
         List<Article> GetAll();
+        List<Article> GetArticesBySearch(string searchText);
         List<Article> GetArticlesByCategoryId(int categoryId);
         List<Article> GetRecentlyArticles(int count);
         List<Article> GetMostPopularArticles();

@@ -133,5 +133,11 @@ namespace Recipe.MvcWebUI.Controllers
             return View();
         }
 
+        public IActionResult YaziAra(string text="test")
+        {
+            var articles = articleManager.GetArticesBySearch(text);
+            return View(articles);
+        }
+
     }
 }
