@@ -7,10 +7,12 @@ D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Release\netcoreapp2.0\Recipe.
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Release\netcoreapp2.0\Recipe.CreatorApiKey.dll
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Release\netcoreapp2.0\Recipe.DataAccess.dll
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Release\netcoreapp2.0\Recipe.Entities.dll
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Release\netcoreapp2.0\Recipe.PhotoOperations.dll
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Release\netcoreapp2.0\Recipe.Business.pdb
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Release\netcoreapp2.0\Recipe.CreatorApiKey.pdb
-D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Release\netcoreapp2.0\Recipe.Entities.pdb
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Release\netcoreapp2.0\Recipe.DataAccess.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Release\netcoreapp2.0\Recipe.Entities.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\bin\Release\netcoreapp2.0\Recipe.PhotoOperations.pdb
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Release\netcoreapp2.0\Recipe.MvcWebUI.csprojAssemblyReference.cache
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Release\netcoreapp2.0\Recipe.MvcWebUI.csproj.CoreCompileInputs.cache
 D:\YazilimProjeleri2019\Recipe\Recipe.MvcWebUI\obj\Release\netcoreapp2.0\Recipe.MvcWebUI.AssemblyInfoInputs.cache

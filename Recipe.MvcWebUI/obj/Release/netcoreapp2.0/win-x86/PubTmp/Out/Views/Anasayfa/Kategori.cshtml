@@ -1,0 +1,109 @@
+﻿@model Recipe.MvcWebUI.Models.CategoryViewModel
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *,ReflectionIT.Mvc.Paging
+@{
+    ViewData["Title"] = "Kategori";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h2>@Model.Category.CategoryName Kategorisi Yazıları</h2>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        @foreach (var item in Model.Articles)
+                        {
+                            <div class="post post-row">
+                                <a class="post-img" href="/Anasayfa/Makale/@item.Id"><img style="object-fit:cover;height:200px;" src="~/Makale/@item.Photo" alt=""></a>
+                                <div class="post-body">
+                                    <h3 class="post-title"><a href="/Anasayfa/Makale/@item.Id">@item.Title</a></h3>
+                                    <p>
+                                        @{string metin = System.Text.RegularExpressions.Regex.Replace(item.Content, @"<(.|\n)*?>", string.Empty); }
+                                        @if (metin.Length > 150)
+                                        {
+                                            @Html.Raw(metin.Substring(0, 150) + " ...");
+                                        }
+                                        else
+                                        {
+                                            @Html.Raw(metin);
+                                        }
+                                    </p>
+                                    <div class="post-meta">
+                                        <a class="post-category cat-2" href="/Anasayfa/Kategori/@item.Category.Id">@item.Category.CategoryName</a>
+                                        <span class="post-date">@item.CreatedDate</span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="text-center">
+                            <br />
+                            @for (var p = 1; p <= Model.MyPagingModel.PageCount; p++)
+                            {
+                                <a href="@Url.Action("Kategori", new { sayfa = p })" style="border:1px solid black" class="btn btn-outline-primary page-item">@p</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <!-- catagories -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2>Kategoriler</h2>
+                    </div>
+                    <div class="category-widget">
+                        <ul>
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li><a href="/Anasayfa/Kategori/@item.Id" class="cat-1"><i class="fa fa-arrow-right" aria-hidden="true"></i> @item.CategoryName</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <!-- /catagories -->
+                <!-- catagories -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2>Çok Okunanlar</h2>
+                    </div>
+                    <div class="category-widget">
+                        <ul>
+                            @foreach (var item in Model.PopularArticles)
+                            {
+                                <li>
+                                    <a href="/Anasayfa/Makale/@item.Id" class="cat-1">
+                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                        @if (item.Title.Length > 20)
+                                        {
+                                            @item.Title.Substring(0, 20) <span>...</span>
+                                        }
+                                        else
+                                        {
+                                            @item.Title
+                                        }
+                                    </a>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /catagories -->
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /section -->

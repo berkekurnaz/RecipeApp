@@ -1,0 +1,108 @@
+﻿@model Recipe.MvcWebUI.Models.AboutViewModel
+@{
+    ViewData["Title"] = "Hakkimizda";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <ul class="page-header-breadcrumb">
+                    <li><a href="/Anasayfa/Index/">Anasayfa</a></li>
+                    <li>Hakkımızda</li>
+                </ul>
+                <h1>Hakkımızda</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="section-row">
+                    @Html.Raw(Model.Setting.Description)
+                    <hr />
+                    <ul class="footer-social text-center">
+                        @if (Model.Setting.Facebook != "bos")
+                        {
+                            <li>
+                                <a href="@Model.Setting.Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                            </li>
+                        }
+                        @if (Model.Setting.Instagram != "bos")
+                        {
+                            <li>
+                                <a href="@Model.Setting.Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+                            </li>
+                        }
+                        @if (Model.Setting.Twitter != "bos")
+                        {
+                            <li>
+                                <a href="@Model.Setting.Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                            </li>
+                        }
+                        @if (Model.Setting.Youtube != "bos")
+                        {
+                            <li>
+                                <a href="@Model.Setting.Youtube" target="_blank"><i class="fa fa-youtube"></i></a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <!-- catagories -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2>Kategoriler</h2>
+                    </div>
+                    <div class="category-widget">
+                        <ul>
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li><a href="/Anasayfa/Kategori/@item.Id" class="cat-1"><i class="fa fa-arrow-right" aria-hidden="true"></i> @item.CategoryName</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <!-- /catagories -->
+                <!-- catagories -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2>Çok Okunanlar</h2>
+                    </div>
+                    <div class="category-widget">
+                        <ul>
+                            @foreach (var item in Model.PopularArticles)
+                            {
+                                <li>
+                                    <a href="/Anasayfa/Makale/@item.Id" class="cat-1">
+                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                        @if (item.Title.Length > 20)
+                                        {
+                                            @item.Title.Substring(0, 20) <span>...</span>
+                                        }
+                                        else
+                                        {
+                                            @item.Title
+                                        }
+                                    </a>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /catagories -->
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+

@@ -1,0 +1,77 @@
+﻿@model Recipe.MvcWebUI.Models.MyLayoutViewModel
+<!-- Footer -->
+<footer id="footer">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-5">
+                <div class="footer-widget">
+                    <div class="footer-logo">
+                        <a href="/Anasayfa/Index/" class="logo">@Model.Setting.Name</a>
+                    </div>
+                    <ul class="footer-nav">
+                        <li><a href="/Anasayfa/Hakkimizda/">Hakkımızda</a></li>
+                        <li><a href="/Anasayfa/Iletisim/">İletişim</a></li>
+                    </ul>
+                    <div class="footer-copyright">
+                        <span>
+                            @DateTime.Now.Year Tarihinde Geliştirilmiştir &copy;
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="footer-widget">
+                            <h3 class="footer-title">Biz Kimiz</h3>
+                            <ul class="footer-links">
+                                <li><a href="/Anasayfa/Hakkimizda/">Hakkımızda</a></li>
+                                <li><a href="/Uye/Giris/">Üye Girişi</a></li>
+                                <li><a href="/Anasayfa/Iletisim/">İletişim</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="footer-widget">
+                    <h3 class="footer-title">Sosyal Medya</h3>
+                    <ul class="footer-social">
+                        @if (Model.Setting.Facebook != "bos")
+                        {
+                            <li>
+                                <a href="@Model.Setting.Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                            </li>
+                        }
+                        @if (Model.Setting.Instagram != "bos")
+                        {
+                            <li>
+                                <a href="@Model.Setting.Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+                            </li>
+                        }
+                        @if (Model.Setting.Twitter != "bos")
+                        {
+                            <li>
+                                <a href="@Model.Setting.Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                            </li>
+                        }
+                        @if (Model.Setting.Youtube != "bos")
+                        {
+                            <li>
+                                <a href="@Model.Setting.Youtube" target="_blank"><i class="fa fa-youtube"></i></a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</footer>
+<!-- /Footer -->

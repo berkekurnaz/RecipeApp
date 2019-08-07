@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Recipe.Business</id>
+    <version>1.0.0</version>
+    <authors>Recipe.Business</authors>
+    <owners>Recipe.Business</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp2.0">
+        <dependency id="Recipe.DataAccess" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Recipe.Entities" version="1.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\YazilimProjeleri2019\Recipe\Recipe.Business\bin\Release\netcoreapp2.0\Recipe.Business.dll" target="lib\netcoreapp2.0\Recipe.Business.dll" />
+  </files>
+</package>

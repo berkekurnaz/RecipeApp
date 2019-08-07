@@ -23,12 +23,15 @@
     ".NETCoreApp,Version=v2.0": {
       "Recipe.MvcWebUI/1.0.0": {
         "dependencies": {
+          "LiteDB": "4.1.4",
           "Microsoft.AspNetCore.All": "2.0.8",
           "Microsoft.NETCore.App": "2.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.3",
           "Recipe.Business": "1.0.0",
           "Recipe.CreatorApiKey": "1.0.0",
+          "Recipe.DataAccess": "1.0.0",
           "Recipe.Entities": "1.0.0",
+          "Recipe.PhotoOperations": "1.0.0",
           "ReflectionIT.Mvc.Paging": "2.4.0"
         },
         "runtime": {
@@ -4126,6 +4129,14 @@
           "Recipe.Entities.dll": {}
         }
       },
+      "Recipe.PhotoOperations/1.0.0": {
+        "runtime": {
+          "Recipe.PhotoOperations.dll": {}
+        },
+        "compile": {
+          "Recipe.PhotoOperations.dll": {}
+        }
+      },
       "Microsoft.NETCore.App/2.0.0": {
         "dependencies": {
           "Microsoft.NETCore.DotNetHostPolicy": "2.0.0",
@@ -6475,6 +6486,11 @@
       "sha512": ""
     },
     "Recipe.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Recipe.PhotoOperations/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

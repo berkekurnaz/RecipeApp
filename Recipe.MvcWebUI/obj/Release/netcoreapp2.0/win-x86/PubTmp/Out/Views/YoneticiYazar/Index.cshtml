@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Author>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
+}
+
+<script src="~/TemplateAdmin/Js/jquery-1.10.2.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#myTable').dataTable();
+    });
+</script>
+
+<div class="container-fluid">
+
+    @if (TempData["YazarEklemeBasariMesaj"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["YazarEklemeBasariMesaj"]
+        </div>
+    }
+
+    @if (TempData["YazarGuncellemeBasariMesaj"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["YazarGuncellemeBasariMesaj"]
+        </div>
+    }
+
+    @if (TempData["YazarSilmeBasariMesaj"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["YazarSilmeBasariMesaj"]
+        </div>
+    }
+
+    @if (TempData["MakaleFotografBasariMesaj"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["MakaleFotografBasariMesaj"]
+        </div>
+    }
+
+    <a href="/YoneticiYazar/Ekle" class="btn btn-info btn-icon-split" style="margin-bottom:10px">
+        <span class="icon text-white-50">
+            <i class="fas fa-plus-circle"></i>
+        </span>
+        <span class="text">Yeni Yazar Ekle</span>
+    </a>
+
+    @if (Model.Count() > 0)
+    {
+        <!-- Verileri Listeleme -->
+        <div class="card mb-3 text-center">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Yazarlar Listesi
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="myTable">
+                        <thead>
+                            <tr>
+                                <th>Yazar Adı Soyadı</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.NameSurname</td>
+                                    <td>
+                                        <a href="/YoneticiYazar/Incele/@item.Id" class="btn btn-info btn-sm"><i class="fa fa-search"></i> İncele</a>
+                                        <a href="/YoneticiYazar/Guncelle/@item.Id" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Düzenle</a>
+                                        <a href="/YoneticiYazar/Sil/@item.Id" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Sil</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Son Güncelleme Tarihi : @DateTime.Now</div>
+        </div>
+
+    }
+    else
+    {
+        <div class="card mb-3 text-center">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Veri Bulunamadı
+            </div>
+            <div class="card-body">
+                Eklenmiş Herhangi Bir Veri Bulunamadı...
+            </div>
+        </div>
+    }
+</div>
+
+
+

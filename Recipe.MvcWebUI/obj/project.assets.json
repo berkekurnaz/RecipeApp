@@ -5109,6 +5109,16 @@
         "runtime": {
           "bin/placeholder/Recipe.Entities.dll": {}
         }
+      },
+      "Recipe.PhotoOperations/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Recipe.PhotoOperations.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Recipe.PhotoOperations.dll": {}
+        }
       }
     }
   },
@@ -13395,16 +13405,24 @@
       "type": "project",
       "path": "../Recipe.Entities/Recipe.Entities.csproj",
       "msbuildProject": "../Recipe.Entities/Recipe.Entities.csproj"
+    },
+    "Recipe.PhotoOperations/1.0.0": {
+      "type": "project",
+      "path": "../Recipe.PhotoOperations/Recipe.PhotoOperations.csproj",
+      "msbuildProject": "../Recipe.PhotoOperations/Recipe.PhotoOperations.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "LiteDB >= 4.1.4",
       "Microsoft.AspNetCore.All >= 2.0.8",
       "Microsoft.NETCore.App >= 2.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.3",
       "Recipe.Business >= 1.0.0",
       "Recipe.CreatorApiKey >= 1.0.0",
+      "Recipe.DataAccess >= 1.0.0",
       "Recipe.Entities >= 1.0.0",
+      "Recipe.PhotoOperations >= 1.0.0",
       "ReflectionIT.Mvc.Paging >= 2.4.0"
     ]
   },
@@ -13444,8 +13462,14 @@
             "D:\\YazilimProjeleri2019\\Recipe\\Recipe.CreatorApiKey\\Recipe.CreatorApiKey.csproj": {
               "projectPath": "D:\\YazilimProjeleri2019\\Recipe\\Recipe.CreatorApiKey\\Recipe.CreatorApiKey.csproj"
             },
+            "D:\\YazilimProjeleri2019\\Recipe\\Recipe.DataAccess\\Recipe.DataAccess.csproj": {
+              "projectPath": "D:\\YazilimProjeleri2019\\Recipe\\Recipe.DataAccess\\Recipe.DataAccess.csproj"
+            },
             "D:\\YazilimProjeleri2019\\Recipe\\Recipe.Entities\\Recipe.Entities.csproj": {
               "projectPath": "D:\\YazilimProjeleri2019\\Recipe\\Recipe.Entities\\Recipe.Entities.csproj"
+            },
+            "D:\\YazilimProjeleri2019\\Recipe\\Recipe.PhotoOperations\\Recipe.PhotoOperations.csproj": {
+              "projectPath": "D:\\YazilimProjeleri2019\\Recipe\\Recipe.PhotoOperations\\Recipe.PhotoOperations.csproj"
             }
           }
         }
@@ -13459,6 +13483,10 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "LiteDB": {
+            "target": "Package",
+            "version": "[4.1.4, )"
+          },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "[2.0.8, )"

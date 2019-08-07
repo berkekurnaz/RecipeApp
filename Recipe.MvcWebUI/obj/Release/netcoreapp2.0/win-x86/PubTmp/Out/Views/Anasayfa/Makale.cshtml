@@ -1,0 +1,192 @@
+﻿@model Recipe.MvcWebUI.Models.ArticleViewModel
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Makale";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div id="post-header" class="page-header">
+    <div class="background-img" style="background-image: url('/Makale/@Model.Article.Photo');"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="post-meta">
+                    <a class="post-category cat-2" href="category.html">@Model.Article.Category.CategoryName</a>
+                    <span class="post-date">@Model.Article.CreatedDate</span>
+                </div>
+                <h1>@Model.Article.Title</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- Post content -->
+            <div class="col-md-8">
+                @if (TempData["YorumBasariMesaj"] != null)
+                {
+                    <div class="alert alert-success" role="alert">
+                        @TempData["YorumBasariMesaj"]
+                    </div>
+                }
+                <div class="section-row ">
+                    <div class="main-post">
+                        <h3>@Model.Article.Title</h3><br />
+                        @Html.Raw(Model.Article.Content)
+                    </div>
+                </div>
+
+                <!-- author -->
+                <div class="section-row">
+                    <hr />
+                    <div class="post-author">
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object" src="~/Yazar/@Model.Article.Author.Photo" alt="">
+                            </div>
+                            <div class="media-body">
+                                <div class="media-heading">
+                                    <h3>@Model.Article.Author.NameSurname</h3>
+                                </div>
+                                <p>@Model.Article.Author.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /author -->
+                <!-- comments -->
+                <div class="section-row">
+                    <hr />
+                    <div class="section-title">
+                        <h2>Yorumlar</h2>
+                    </div>
+
+                    <div class="post-comments">
+                        @if (Model.Comments.Count > 0)
+                        {
+                            @foreach (var item in Model.Comments)
+                            {
+                                <!-- comment -->
+                                <div class="media">
+                                    <div class="media-left">
+                                        <img class="media-object" src="~/Uye/@item.User.Photo" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media-heading">
+                                            <h4>@item.User.NameSurname</h4>
+                                            <span class="time">@item.CreatedDate</span>
+                                        </div>
+                                        <p>@item.Title</p>
+                                    </div>
+                                </div>
+                                <!-- /comment -->
+                            }
+                        }
+                        else
+                        {
+                            <p>Bu Makaleye Henüz Bir Yorum Yazılmamış</p>
+                        }
+                    </div>
+                </div>
+                <!-- /comments -->
+                <!-- reply -->
+                <div class="section-row">
+                    <hr />
+                    <div class="section-title">
+                        <h2>Yorum Yap</h2>
+                    </div>
+                    @if (HttpContextAccessor.HttpContext.Session.GetString("SessionUserId") != null)
+                    {
+                        <form class="post-reply" asp-controller="Anasayfa" asp-action="YorumYap" asp-route-Id="@Model.Article.Id" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea class="input" asp-for="comment.Title" placeholder="Yorumunuz..." required></textarea>
+                                    </div>
+                                    <button class="primary-button">Yorum Gönder</button>
+                                </div>
+                            </div>
+                        </form>
+                    }
+                    else
+                    {
+                        <p class="text-center">Makalelere Yorum Yazabilmek İçin Giriş Yapmalısın.</p>
+                        <div class="text-center">
+                            <center><a href="/Uye/Giris/"> Hemen Giriş Yapmak İçin Tıkla</a></center>
+                        </div>
+                    }
+
+                </div>
+                <!-- /reply -->
+            </div>
+            <!-- /Post content -->
+            <!-- aside -->
+            <div class="col-md-4">
+                <!-- post widget -->
+                <!-- catagories -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2>Çok Okunanlar</h2>
+                    </div>
+                    <div class="category-widget">
+                        <ul>
+                            @foreach (var item in Model.MostPopular)
+                            {
+                                <li>
+                                    <a href="/Anasayfa/Makale/@item.Id" class="cat-1">
+                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                        @if (item.Title.Length > 20)
+                                        {
+                                            @item.Title.Substring(0, 20) <span>...</span>
+                                        }
+                                        else
+                                        {
+                                            @item.Title
+                                        }
+                                    </a>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /catagories -->
+                <!-- /post widget -->
+                <!-- catagories -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2>Kategoriler</h2>
+                    </div>
+                    <div class="category-widget">
+                        <ul>
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li><a href="/Anasayfa/Kategori/@item.Id" class="cat-1"><i class="fa fa-arrow-right" aria-hidden="true"></i> @item.CategoryName</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <!-- /catagories -->
+            </div>
+            <!-- /aside -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.ajax({
+            url: '/Anasayfa/CountPlus/',
+            data: { articleId: @Model.Article.Id},
+            type: 'POST',
+        });
+    })
+</script>

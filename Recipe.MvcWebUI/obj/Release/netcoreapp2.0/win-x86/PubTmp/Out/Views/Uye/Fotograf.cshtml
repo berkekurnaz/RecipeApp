@@ -1,0 +1,128 @@
+﻿@model Recipe.MvcWebUI.Models.UserViewModel
+@{
+    ViewData["Title"] = "Fotograf Düzenle";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<style>
+    input[type="file"] {
+        cursor: pointer !Important;
+        font: 300 14px sans-serif;
+        color: #9e9e9e;
+    }
+
+        input[type="file"]::-webkit-file-upload-button {
+            font: 300 14px sans-serif;
+            background: #009688;
+            border: 0;
+            padding: 12px 25px;
+            cursor: pointer;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        input[type="file"]::-ms-browse {
+            font: 300 14px 'Roboto', sans-serif;
+            background: #009688;
+            border: 0;
+            padding: 12px 25px;
+            cursor: pointer;
+            color: #fff;
+            text-transform: uppercase;
+        }
+</style>
+
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <ul class="page-header-breadcrumb">
+                    <li><a href="/Uye/Profil/">Anasayfa</a></li>
+                    <li>Profil</li>
+                </ul>
+                <h1>Üye Fotoğraf Düzenle</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="section-row text-center">
+
+                    <form asp-controller="Uye" asp-action="Fotograf" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="control-label mb-1">Aktif Profil Fotoğrafı</label>
+                            <center><img src="~/Uye/@Model.User.Photo" width="250" /></center>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label mb-1">Yeni Profil Fotoğrafı</label>
+                            <input class="form-control" type="file" name="Image" />
+                        </div>
+                        <div>
+                            <center>
+                                <button type="submit" class="btn btn-info">
+                                    <i class="fa fa-wrench"></i>&nbsp;
+                                    <span id="payment-button-amount">Fotoğraf Güncelle</span>
+                                </button>
+                            </center>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <!-- catagories -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2>Kategoriler</h2>
+                    </div>
+                    <div class="category-widget">
+                        <ul>
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li><a href="/Anasayfa/Kategori/@item.Id" class="cat-1"><i class="fa fa-arrow-right" aria-hidden="true"></i> @item.CategoryName</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <!-- /catagories -->
+                <!-- catagories -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2>Çok Okunanlar</h2>
+                    </div>
+                    <div class="category-widget">
+                        <ul>
+                            @foreach (var item in Model.MostPopular)
+                            {
+                                <li>
+                                    <a href="/Anasayfa/Makale/@item.Id" class="cat-1">
+                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                        @if (item.Title.Length > 20)
+                                        {
+                                            @item.Title.Substring(0, 20) <span>...</span>
+                                        }
+                                        else
+                                        {
+                                            @item.Title
+                                        }
+                                    </a>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /catagories -->
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+

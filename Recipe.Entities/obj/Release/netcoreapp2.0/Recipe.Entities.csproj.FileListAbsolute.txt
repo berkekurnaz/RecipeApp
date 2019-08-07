@@ -1,9 +1,9 @@
 D:\YazilimProjeleri2019\Recipe\Recipe.Entities\bin\Release\netcoreapp2.0\Recipe.Entities.deps.json
 D:\YazilimProjeleri2019\Recipe\Recipe.Entities\bin\Release\netcoreapp2.0\Recipe.Entities.dll
 D:\YazilimProjeleri2019\Recipe\Recipe.Entities\bin\Release\netcoreapp2.0\Recipe.Entities.pdb
-D:\YazilimProjeleri2019\Recipe\Recipe.Entities\obj\Release\netcoreapp2.0\Recipe.Entities.csprojAssemblyReference.cache
 D:\YazilimProjeleri2019\Recipe\Recipe.Entities\obj\Release\netcoreapp2.0\Recipe.Entities.csproj.CoreCompileInputs.cache
 D:\YazilimProjeleri2019\Recipe\Recipe.Entities\obj\Release\netcoreapp2.0\Recipe.Entities.AssemblyInfoInputs.cache
 D:\YazilimProjeleri2019\Recipe\Recipe.Entities\obj\Release\netcoreapp2.0\Recipe.Entities.AssemblyInfo.cs
 D:\YazilimProjeleri2019\Recipe\Recipe.Entities\obj\Release\netcoreapp2.0\Recipe.Entities.dll
 D:\YazilimProjeleri2019\Recipe\Recipe.Entities\obj\Release\netcoreapp2.0\Recipe.Entities.pdb
+D:\YazilimProjeleri2019\Recipe\Recipe.Entities\obj\Release\netcoreapp2.0\Recipe.Entities.csprojAssemblyReference.cache

@@ -1,0 +1,70 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Incele";
+    Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
+}
+
+<div class="card">
+    <div class="card-heading border bottom">
+        <br />
+        <h4 class="card-title text-center">Üye İncele</h4>
+    </div>
+    <div class="card-block">
+        <div class="row">
+            <div class="col-md-9 ml-auto mr-auto">
+                <div class="form-group">
+                    <br />
+                    <label>Kullanıcı Adı</label>
+                    <input type="text" class="form-control kontrol" value="@Model.Username" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Şifre</label>
+                    <input type="text" class="form-control kontrol" value="@Model.Password" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Ad Soyad</label>
+                    <input type="text" class="form-control kontrol" value="@Model.NameSurname" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Mail Adresi</label>
+                    <input type="text" class="form-control kontrol" value="@Model.Mail" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Üyelik Tarihi</label>
+                    <input type="text" class="form-control kontrol" value="@Model.CreatedDate" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="text-center">Üye Fotoğraf</label>
+                    <center><img src="~/Uye/@Model.Photo" class="rounded-circle" width="250" /></center>
+                </div>
+                <div class="form-group">
+                    <a href="/YoneticiUye/Index" class="btn btn-info"><i class="fa fa-arrow-left" aria-hidden="true"></i> Geriye Dön</a>
+                    <a href="#" data-toggle="modal" data-target="#deleteModal" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Üye Sil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Modal-->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Üye Silme Ekranı</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form asp-controller="YoneticiUye" asp-action="Sil" asp-route-Id="@Model.Id" method="post" enctype="multipart/form-data" class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
+                <div class="modal-body">
+                    Üyeyi Sildiğiniz Zaman Üyenin Yazmış Olduğu Bütün Yorumlarıda Silmiş Olursunuz.Üyeyi Gerçekten Silmek İstediğinize Emin Misiniz ?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">İptal Et</button>
+                    <button type="submit" class="btn btn-danger">Üyeyi Sil</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

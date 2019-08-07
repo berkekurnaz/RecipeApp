@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.FileProviders;
 
 namespace Recipe.MvcWebUI
@@ -22,6 +23,7 @@ namespace Recipe.MvcWebUI
 
             services.AddSingleton<IFileProvider>(physicalProvider);
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSession();
             services.AddMvc();
             services.AddDistributedMemoryCache();
@@ -30,6 +32,7 @@ namespace Recipe.MvcWebUI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

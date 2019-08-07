@@ -1,0 +1,27 @@
+﻿@model Author
+@{
+    ViewData["Title"] = "Sil";
+    Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
+}
+
+<div class="card">
+    <div class="card-heading border bottom">
+        <br />
+        <h4 class="card-title text-center">Yazar Silme</h4>
+    </div>
+    <div class="card-block">
+        <div class="row">
+            <div class="col-md-9 ml-auto mr-auto">
+                <form asp-controller="YoneticiYazar" asp-action="Sil" method="post" enctype="multipart/form-data" class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
+                    <br />
+                    <p class="text-center">
+                        @Model.NameSurname Adlı Yazarı Gerçekten Silmek İstiyor Musunuz ? <br />
+                        Bu Yazarı Silmenizle Beraber Yazarın Daha Önce Yazmış Olduğu Bütün Yazılar Silinecektir.
+                    </p>
+                    <center><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Yazar Sil</button></center><br />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

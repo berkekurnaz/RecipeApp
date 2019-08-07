@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Comment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
+}
+
+<script src="~/TemplateAdmin/Js/jquery-1.10.2.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#myTable').dataTable();
+    });
+</script>
+
+<div class="container-fluid">
+
+    @if (TempData["YorumSilmeBasariMesaj"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["YorumSilmeBasariMesaj"]
+        </div>
+    }
+
+    @if (Model.Count() > 0)
+    {
+        <!-- Verileri Listeleme -->
+        <div class="card mb-3 text-center">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Yorumlar Listesi
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="myTable">
+                        <thead>
+                            <tr>
+                                <th>Ad Soyad</th>
+                                <th>İlgili Makale</th>
+                                <th>Gönderim Tarihi</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>@item.User.NameSurname</td>
+                                <td>@item.Article.Title</td>
+                                <td>@item.CreatedDate</td>
+                                <td>
+                                    <a href="/YoneticiYorum/Incele/@item.Id" class="btn btn-info btn-sm"><i class="fa fa-search"></i> İncele</a>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Son Güncelleme Tarihi : @DateTime.Now</div>
+        </div>
+
+    }
+    else
+    {
+        <div class="card mb-3 text-center">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Veri Bulunamadı
+            </div>
+            <div class="card-body">
+                Eklenmiş Herhangi Bir Veri Bulunamadı...
+            </div>
+        </div>
+    }
+</div>
+

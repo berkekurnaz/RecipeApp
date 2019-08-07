@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="LiteDB" Version="4.1.4" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
     <PackageReference Include="ReflectionIT.Mvc.Paging" Version="2.4.0" />
@@ -19,7 +20,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Recipe.Business\Recipe.Business.csproj" />
     <ProjectReference Include="..\Recipe.CreatorApiKey\Recipe.CreatorApiKey.csproj" />
+    <ProjectReference Include="..\Recipe.DataAccess\Recipe.DataAccess.csproj" />
     <ProjectReference Include="..\Recipe.Entities\Recipe.Entities.csproj" />
+    <ProjectReference Include="..\Recipe.PhotoOperations\Recipe.PhotoOperations.csproj" />
   </ItemGroup>
 
 </Project>

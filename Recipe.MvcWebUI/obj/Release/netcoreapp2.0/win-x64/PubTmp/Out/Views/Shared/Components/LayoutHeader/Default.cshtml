@@ -1,0 +1,138 @@
+﻿@model Recipe.MvcWebUI.Models.MyLayoutViewModel
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<!-- Header -->
+<header id="header">
+    <!-- Nav -->
+    <div id="nav">
+        <!-- Main Nav -->
+        <div id="nav-fixed">
+            <ul class="container">
+                <!-- logo -->
+                <div class="nav-logo">
+                    <a href="/Anasayfa/Index/" class="logo">@Model.Setting.Name</a>
+                </div>
+                <!-- /logo -->
+                <!-- nav -->
+                <ul class="nav-menu nav navbar-nav">
+                    <li><a href="/Anasayfa/Index/">Anasayfa</a></li>
+                    <li><a href="/Anasayfa/Hakkimizda/">Hakkımızda</a></li>
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Tüm Kategoriler
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li class="text-center">
+                                    <a style="padding-top:5px;padding-bottom:5px;" href="/Anasayfa/Kategori/@item.Id">@item.CategoryName</a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                    @if (HttpContextAccessor.HttpContext.Session.GetString("SessionUserId") != null)
+                    {
+                        <li><a href="/Uye/Profil/">Üye Profili</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Uye/Giris/">Üye Girişi</a></li>
+                    }
+                    <li><a href="/Anasayfa/Iletisim/">İletişim</a></li>
+                </ul>
+                <!-- /nav -->
+                <!-- search & aside toggle -->
+                <div class="nav-btns">
+                    <button class="aside-btn"><i class="fa fa-bars"></i></button>
+                    <button class="search-btn"><i class="fa fa-search"></i></button>
+                    <div class="search-form">
+                        <input class="search-input" type="text" name="search" placeholder="Aramak İstediğin Yazı ...">
+                        <button class="search-close"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <!-- /search & aside toggle -->
+        </div>
+    </div>
+    <!-- /Main Nav -->
+    <!-- Aside Nav -->
+    <div id="nav-aside">
+        <!-- nav -->
+        <div class="section-row">
+            <ul class="nav-aside-menu">
+                <li><a href="/Anasayfa/Index/">Anasayfa</a></li>
+                <li><a href="/Anasayfa/Hakkimizda/">Hakkımızda</a></li>
+                <li class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tüm Kategoriler
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @foreach (var item in Model.Categories)
+                        {
+                            <li class="text-center">
+                                <a href="/Anasayfa/Kategori/@item.Id">@item.CategoryName</a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+                @if (HttpContextAccessor.HttpContext.Session.GetString("SessionUserId") != null)
+                {
+                    <li><a href="/Uye/Profil/">Üye Profili</a></li>
+                }
+                else
+                {
+                    <li><a href="/Uye/Giris/">Üye Girişi</a></li>
+                }
+                <li><a href="/Anasayfa/Iletisim/">İletişim</a></li>
+            </ul>
+        </div>
+        <!-- /nav -->
+        <!-- social links -->
+        <div class="section-row">
+            <h3>Sosyal Medya</h3>
+            <ul class="nav-aside-social">
+                @if (Model.Setting.Facebook != "bos")
+                {
+                    <li>
+                        <a href="@Model.Setting.Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                    </li>
+                }
+                @if (Model.Setting.Instagram != "bos")
+                {
+                    <li>
+                        <a href="@Model.Setting.Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+                    </li>
+                }
+                @if (Model.Setting.Twitter != "bos")
+                {
+                    <li>
+                        <a href="@Model.Setting.Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                    </li>
+                }
+                @if (Model.Setting.Youtube != "bos")
+                {
+                    <li>
+                        <a href="@Model.Setting.Youtube" target="_blank"><i class="fa fa-youtube"></i></a>
+                    </li>
+                }
+            </ul>
+        </div>
+        <!-- /social links -->
+        <!-- aside nav close -->
+        <button class="nav-aside-close"><i class="fa fa-times"></i></button>
+        <!-- /aside nav close -->
+    </div>
+    <!-- Aside Nav -->
+    </div>
+    <!-- /Nav -->
+</header>
+<!-- /Header -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $('.search-input').keyup(function (e) {
+        var value = $('.search-input').val().toString();
+        if (e.keyCode == 13) {
+            window.location.href = "/Anasayfa/YaziAra?text=" + value;
+        }
+    });
+</script>

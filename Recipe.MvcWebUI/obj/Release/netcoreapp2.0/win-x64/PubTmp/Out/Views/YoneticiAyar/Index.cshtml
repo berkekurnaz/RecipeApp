@@ -1,0 +1,122 @@
+﻿@model Setting
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
+}
+
+<div class="container-fluid text-center">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Site Ayarları</h3>
+            <hr />
+
+            @if (TempData["AyarGuncellemeMesaj"] != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    @TempData["AyarGuncellemeMesaj"]
+                </div>
+            }
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Genel Ayarlar</h6>
+                </div>
+                <div class="card-body">
+                    <form asp-controller="YoneticiAyar" asp-action="AyarGuncelle" method="post" enctype="multipart/form-data" class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
+                        <div class="form-group">
+                            <label>Site Adı</label>
+                            <input type="text" class="form-control kontrol" asp-for="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Site Açıklama</label>
+                            <input type="text" class="form-control kontrol" asp-for="Description" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mail Adresi</label>
+                            <input type="text" class="form-control kontrol" asp-for="Mail">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon Numarası</label>
+                            <input type="text" class="form-control kontrol" asp-for="Phone">
+                        </div>
+                        <div class="form-group">
+                            <label>Site İkonu</label>
+                            <input type="text" class="form-control kontrol" asp-for="Icon">
+                        </div>
+
+                        <center><button type="submit" class="btn btn-info"><i class="fa fa-edit" aria-hidden="true"></i> Ayarları Güncelle</button></center><br />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Sosyal Medya Ayarları</h6>
+                </div>
+                <div class="card-body">
+                    <form asp-controller="YoneticiAyar" asp-action="MedyaGuncelle" method="post" enctype="multipart/form-data" class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
+                        <div class="form-group">
+                            <label>Facebook</label>
+                            <input type="text" class="form-control kontrol" asp-for="Facebook">
+                        </div>
+                        <div class="form-group">
+                            <label>Instagram</label>
+                            <input type="text" class="form-control kontrol" asp-for="Instagram">
+                        </div>
+                        <div class="form-group">
+                            <label>Youtube</label>
+                            <input type="text" class="form-control kontrol" asp-for="Youtube">
+                        </div>
+                        <div class="form-group">
+                            <label>Twitter</label>
+                            <input type="text" class="form-control kontrol" asp-for="Twitter">
+                        </div>
+                        <center><button type="submit" class="btn btn-info"><i class="fa fa-edit" aria-hidden="true"></i> Ayarları Güncelle</button></center><br />
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Sosyal Medya Ayarları</h6>
+                </div>
+                <div class="card-body">
+                    <form asp-controller="YoneticiAyar" asp-action="SeoGuncelle" method="post" enctype="multipart/form-data" class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
+                        <div class="form-group">
+                            <label>Seo Site Adı</label>
+                            <input type="text" class="form-control kontrol" asp-for="SeoName">
+                        </div>
+                        <div class="form-group">
+                            <label>Seo Site Açıklama</label>
+                            <input type="text" class="form-control kontrol" asp-for="SeoDescription">
+                        </div>
+                        <div class="form-group">
+                            <label>Header Ek Kodlar</label>
+                            <textarea class="form-control" asp-for="SeoHeader" rows="5"></textarea>
+                        </div>
+                        <center><button type="submit" class="btn btn-info"><i class="fa fa-edit" aria-hidden="true"></i> Ayarları Güncelle</button></center><br />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Notlar</h6>
+                </div>
+                <div class="card-body">
+                    Site Ayarlarına İlişkin Notlar
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

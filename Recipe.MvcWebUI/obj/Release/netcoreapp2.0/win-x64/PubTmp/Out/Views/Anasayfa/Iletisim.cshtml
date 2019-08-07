@@ -1,0 +1,108 @@
+﻿@model Recipe.MvcWebUI.Models.ContactViewModel
+@{
+    ViewData["Title"] = "Iletisim";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <ul class="page-header-breadcrumb">
+                    <li><a href="/Anasayfa/Index/">Anasayfa</a></li>
+                    <li>İletişim</li>
+                </ul>
+                <h1>İletişim</h1>
+                @if (TempData["ContactSuccessMessage"] != null)
+                {
+                    <div class="alert alert-success" role="alert">
+                        @TempData["ContactSuccessMessage"]
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="section-row">
+                    <h3>İletişim Bölümü</h3>
+                    <p>Buradaki İletişim Bilgileri Aracılığıyla Veya Yandaki Form Aracılığıyla Bizimle İletişim Kurabilirsiniz.</p>
+                    <ul class="list-style">
+                        <li><p><strong>Mail:</strong> <a href="#">@Model.Setting.Mail</a></p></li>
+                        @if (Model.Setting.Phone != null)
+                        {
+                            <li><p><strong>Telefon:</strong> @Model.Setting.Phone</p></li>
+                        }
+                    </ul>
+                    <ul class="footer-social">
+                        @if (Model.Setting.Facebook != "bos")
+                        {
+                        <li>
+                            <a href="@Model.Setting.Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        }
+                        @if (Model.Setting.Instagram != "bos")
+                        {
+                        <li>
+                            <a href="@Model.Setting.Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        }
+                        @if (Model.Setting.Twitter != "bos")
+                        {
+                            <li>
+                                <a href="@Model.Setting.Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                            </li>
+                        }
+                        @if (Model.Setting.Youtube != "bos")
+                        {
+                            <li>
+                                <a href="@Model.Setting.Youtube" target="_blank"><i class="fa fa-youtube"></i></a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-5 col-md-offset-1">
+                <div class="section-row">
+                    <h3>Mesaj Gönderin</h3>
+                    <form asp-controller="Anasayfa" asp-action="Iletisim" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <span>Ad Soyad</span>
+                                    <input class="input" type="text" asp-for="Contact.NameSurname" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <span>Mail</span>
+                                    <input class="input" type="email" asp-for="Contact.Mail" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <span>Başlık</span>
+                                    <input class="input" type="text" asp-for="Contact.Title" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <span>Mesaj</span>
+                                    <textarea class="input" asp-for="Contact.Content" required></textarea>
+                                </div>
+                                <button class="primary-button">Mesaj Gönder</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+
