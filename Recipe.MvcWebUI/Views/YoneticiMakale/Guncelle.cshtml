@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
 }
 
-<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+<script src="https://ckeditor.com/docs/vendors/4.12.1/ckeditor/ckeditor.js"></script>
 
 <div class="card">
     <div class="card-heading border bottom">
@@ -38,6 +38,11 @@
 
 
 <script>
-    CKEDITOR.replace('Content');
+    CKEDITOR.replace('Content', {
+        height: 300,
+        extraPlugins: 'colorbutton',
+        colorButton_colors: '000,f1c40f,3498db,e74c3c,2ecc71,9b59b6,f39c12,#ecf0f1',
+        colorButton_enableAutomatic: false
+    });
 </script>
 
