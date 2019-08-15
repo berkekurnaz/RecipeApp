@@ -83,5 +83,27 @@ namespace Recipe.Business.Concrete.LiteDb
             _articleDal.Update(article);
         }
 
+        public void UpdateByAuthorId(int authorId)
+        {
+            List<Article> articles = _articleDal.GetAll().FindAll(x => x.Author.Id == authorId);
+            for (int i = 0; i < articles.Count; i++)
+            {
+                LDAuthorManager authorManager = new LDAuthorManager("Authors");
+                articles[i].Author = authorManager.GetById(authorId);
+                _articleDal.Update(articles[i]);
+            }
+        }
+
+        public void UpdateByCategoryId(int categoryId)
+        {
+            List<Article> articles = _articleDal.GetAll().FindAll(x => x.Category.Id == categoryId);
+            for (int i = 0; i < articles.Count; i++)
+            {
+                LDCategoryManager categoryManager = new LDCategoryManager("Categories");
+                articles[i].Category = categoryManager.GetById(categoryId);
+                _articleDal.Update(articles[i]);
+            }
+        }
+
     }
 }

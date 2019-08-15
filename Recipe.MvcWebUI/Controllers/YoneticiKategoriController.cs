@@ -38,6 +38,7 @@ namespace Recipe.MvcWebUI.Controllers
             Category category = categoryManager.GetById(Id);
             category.CategoryName = CategoryName;
             categoryManager.Update(category);
+            articleManager.UpdateByCategoryId(Id);
             TempData["KategoriGuncellemeBasariMesaj"] = "Kategori Başarıyla Güncellendi...";
             return RedirectToAction("Index");
         }

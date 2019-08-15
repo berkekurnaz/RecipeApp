@@ -74,6 +74,7 @@ namespace Recipe.MvcWebUI.Controllers
             author.Password = newAuthor.Password;
             author.ApiKey = newAuthor.ApiKey;
             authorManager.Update(author);
+            articleManager.UpdateByAuthorId(Id);
             TempData["YazarGuncellemeBasariMesaj"] = "Yazar Başarıyla Güncellendi...";
             return RedirectToAction("Index");
         }
