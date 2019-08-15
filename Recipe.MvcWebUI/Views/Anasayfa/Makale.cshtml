@@ -5,7 +5,7 @@
     ViewData["Title"] = "Makale";
     Layout = "~/Views/Shared/_LayoutMain.cshtml";
 }
-
+<!--
 <div id="post-header" class="page-header">
     <div class="background-img" style="background-image: url('/Makale/@Model.Article.Photo');"></div>
     <div class="container">
@@ -20,6 +20,7 @@
         </div>
     </div>
 </div>
+-->
 
 <div class="section">
     <!-- container -->
@@ -36,6 +37,8 @@
                 }
                 <div class="section-row ">
                     <div class="main-post">
+                        <img class="img img-thumbnail" style="object-fit:cover;width:100%;" src="~/Makale/@Model.Article.Photo" /> <br /><br />
+                        <h5><b>Eklenme Tarihi :</b> @Model.Article.CreatedDate --- <b>Kategori :</b> @Model.Article.Category.CategoryName</h5> <br />
                         <h3>@Model.Article.Title</h3><br />
                         @Html.Raw(Model.Article.Content)
                     </div>
