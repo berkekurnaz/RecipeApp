@@ -92,11 +92,14 @@ namespace Recipe.MvcWebUI.Controllers
         public IActionResult Guncelle(int Id, Article newArticle, int KategoriId)
         {
             var category = categoryManager.GetById(KategoriId);
+            var authorId = Convert.ToInt32(HttpContext.Session.GetString("SessionAuthorId"));
+            var author = authorManager.GetById(authorId);
 
             Article article = articleManager.GetById(Id);
             article.Title = newArticle.Title;
             article.Content = newArticle.Content;
             article.Category = category;
+            article.Author = author;
             articleManager.Update(article);
             TempData["MakaleGuncellemeBasariMesaj"] = "Makale Başarıyla Güncellendi...";
             return RedirectToAction("Index");
