@@ -67,7 +67,7 @@ namespace Recipe.MvcWebUI.Controllers
         }
 
         /* Kategoriye Ait Makale Listeleme Sayfası */
-        public IActionResult Kategori(int Id, int sayfa=1)
+        public IActionResult Kategori(int Id, int sayfa = 1)
         {
             var category = categoryManager.GetById(Id);
             if (category == null)
@@ -79,11 +79,11 @@ namespace Recipe.MvcWebUI.Controllers
 
             CategoryViewModel categoryViewModel = new CategoryViewModel()
             {
-                Articles = articleManager.GetArticlesByCategoryId(Id).Skip(pageCount).Take(5).OrderByDescending(x => x.Id).ToList(),
+                Articles = PagingList.Create(articleManager.GetArticlesByCategoryId(Id).OrderByDescending(x =>x.Id), 5, sayfa),
                 Categories = categoryManager.GetAll(),
                 Category = categoryManager.GetById(Id),
                 PopularArticles = articleManager.GetMostPopularArticles(),
-                MyPagingModel = PagingList.Create(articleManager.GetArticlesByCategoryId(Id), 5, sayfa)
+                MyPagingModel = PagingList.Create(articleManager.GetArticlesByCategoryId(Id).OrderByDescending(x => x.Id), 5, sayfa)
             };
             return View(categoryViewModel);
         }
@@ -133,7 +133,7 @@ namespace Recipe.MvcWebUI.Controllers
             return View();
         }
 
-        public IActionResult YaziAra(string text="test")
+        public IActionResult YaziAra(string text = "test")
         {
             var articles = articleManager.GetArticesBySearch(text);
             return View(articles);
