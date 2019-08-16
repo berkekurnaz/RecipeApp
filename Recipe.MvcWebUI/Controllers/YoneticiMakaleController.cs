@@ -91,16 +91,15 @@ namespace Recipe.MvcWebUI.Controllers
         [HttpPost]
         public IActionResult Guncelle(int Id, Article newArticle, int KategoriId)
         {
-            var category = categoryManager.GetById(KategoriId);
-            var authorId = Convert.ToInt32(HttpContext.Session.GetString("SessionAuthorId"));
-            var author = authorManager.GetById(authorId);
+            Author myauthor = authorManager.GetById(Convert.ToInt32(HttpContext.Session.GetInt32("SessionAuthorId")));
 
             Article article = articleManager.GetById(Id);
             article.Title = newArticle.Title;
             article.Content = newArticle.Content;
-            article.Category = category;
-            article.Author = author;
+            article.Category = categoryManager.GetById(KategoriId);
+            article.Author = myauthor;
             articleManager.Update(article);
+
             TempData["MakaleGuncellemeBasariMesaj"] = "Makale Başarıyla Güncellendi...";
             return RedirectToAction("Index");
         }
