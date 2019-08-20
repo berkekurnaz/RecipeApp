@@ -170,6 +170,7 @@ namespace Recipe.MvcWebUI.Controllers
             item.Mail = user.Mail;
             item.Username = user.Username;
             userManager.Update(item);
+            commentManager.UpdateByUserId(userId);
             TempData["UyeGuncellemeBasariMesaj"] = "Üye Bilgileriniz Başarıyla Güncellendi.";
             return RedirectToAction("Profil");
         }
@@ -211,6 +212,7 @@ namespace Recipe.MvcWebUI.Controllers
                 item.Photo = newImage;
             }
             userManager.Update(item);
+            commentManager.UpdateByUserId(userId);
             TempData["UyeFotografBasariMesaj"] = "Üye Profil Fotoğrafı Başarıyla Güncellendi.";
             return RedirectToAction("Profil");
         }

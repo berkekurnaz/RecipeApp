@@ -90,5 +90,17 @@ namespace Recipe.Business.Concrete.LiteDb
         {
             _commentDal.Update(comment);
         }
+
+        public void UpdateByUserId(int userId)
+        {
+            List<Comment> comments = _commentDal.GetAll().FindAll(x => x.User.Id == userId);
+            for (int i = 0; i < comments.Count; i++)
+            {
+                LDUserManager userManager = new LDUserManager("Users");
+                comments[i].User = userManager.GetById(userId);
+                _commentDal.Update(comments[i]);
+            }
+        }
+
     }
 }
