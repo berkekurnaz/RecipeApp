@@ -139,6 +139,7 @@ namespace Recipe.MvcWebUI.Controllers
                 author.Photo = newImage;
             }
             authorManager.Update(author);
+            articleManager.UpdateByAuthorId(Id);
             TempData["YazarFotografBasariMesaj"] = "Yazar Fotoğrafı Başarıyla Güncellendi...";
             return RedirectToAction("Index");
         }
